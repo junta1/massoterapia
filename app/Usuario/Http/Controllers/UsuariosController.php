@@ -4,12 +4,26 @@ namespace App\Usuario\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Usuario\Model\UsuariosModel;
-use App\Usuario\Http\Requests;
+use Illuminate\Support\Facades\Input;
+use App\Http\Controllers\Controller;
+use App\Usuario\Usuario;
 
-class UsuarioController extends Controller
-{
+class UsuariosController extends Controller {
+
+//    Criar um atributo do tipo protected
+    protected $usuarios;
+
+    public function __construct(Usuario $usuarios) {
+        $this->usuarios = $usuarios;
+    }
+
+    public function index() {
+        $usuarios = $this->usuarios->all();
+        return view('usuarios.index', compact('usuarios'));
+    }
+
     public function create() {
-   
+        return view('usuarios.create');
     }
 
     /**
@@ -17,10 +31,18 @@ class UsuarioController extends Controller
      *
      * @return Response
      */
-    public function store(UsuarioValidacao $validacao) {
-//      
-
+    public function store(Request $request) {
+        $this->usuarios->save($request->all());
+        
+        //Redireciona após a execuçã do inserir
+        return redirect()->route('usuarios.index');
     }
+    
+    /*Inserir sem validar
+    public function store(Request $request) {
+        $this->usuarios->save($request->all());
+    }
+     */
 
     /**
      * Display the specified resource.
@@ -39,7 +61,7 @@ class UsuarioController extends Controller
      * @return Response
      */
     public function edit($id) {
-
+        
     }
 
     /**
@@ -49,7 +71,7 @@ class UsuarioController extends Controller
      * @return Response
      */
     public function update($id, UsuarioValidacao $request) {
-
+        
     }
 
     /**
@@ -59,6 +81,7 @@ class UsuarioController extends Controller
      * @return Response
      */
     public function destroy($id) {
-       
+        
     }
+
 }

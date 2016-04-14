@@ -15,9 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-//Dashboard
-Route::get('/dashboard', 'DashboardController@index');
+Route::resource('usuarios', '\App\Usuario\Http\Controllers\UsuariosController');
 
 /*
 |--------------------------------------------------------------------------

@@ -1,3 +1,3 @@
 <?php
 
-Route::resource('usuarios','app/Usuario/Http/Controllers/UsuariosController');
+//Route::resource('usuarios', '\App\Usuario\Http\Controllers\UsuariosController');
