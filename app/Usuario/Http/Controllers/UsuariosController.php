@@ -2,11 +2,12 @@
 
 namespace App\Usuario\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Usuario\Model\UsuariosModel;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Usuario\Usuario;
+use App\Usuario\Http\Requests\UsuarioValidacao;
 
 class UsuariosController extends Controller {
 
@@ -31,8 +32,8 @@ class UsuariosController extends Controller {
      *
      * @return Response
      */
-    public function store(Request $request) {
-        $this->usuarios->save($request->all());
+    public function store(UsuarioValidacao $validacao ) {
+        $this->usuarios->save($validacao->all());
         
         //Redireciona após a execuçã do inserir
         return redirect()->route('usuarios.index');
@@ -61,7 +62,8 @@ class UsuariosController extends Controller {
      * @return Response
      */
     public function edit($id) {
-        
+        $usuarios = $this->usuarios->find($id);
+        return view('usuarios.edit',  compact('usuarios'));
     }
 
     /**
@@ -70,8 +72,9 @@ class UsuariosController extends Controller {
      * @param  int $id
      * @return Response
      */
-    public function update($id, UsuarioValidacao $request) {
-        
+    public function update($id, Request $request) {
+        $this->usuarios->update($id, $request->all());
+        return redirect()->route('usuarios.index');
     }
 
     /**
@@ -81,7 +84,8 @@ class UsuariosController extends Controller {
      * @return Response
      */
     public function destroy($id) {
-        
+        $this->usuarios->delete($id);
+        return redirect()->route('usuarios.index');
     }
 
 }

@@ -1,7 +1,7 @@
 <H3>Edição de Usuário</H3>
 
 {{--Identificando os erros na tela--}}
-@if (count($errors) > 0)
+{{--@if (count($errors) > 0)
 <div class="alert alert-danger">
     <ul>
         @foreach ($errors->all() as $error)
@@ -9,7 +9,7 @@
         @endforeach
     </ul>
 </div>
-@endif
+@endif --}}
 
 {{--{{ Form::open(['action' => ['UsuariosController@edit', $usuarios->id],'method' => 'PUT']) }}--}}
 {{--{{ Form::model($usuarios, array('route' => array('usuarios.edit', $usuarios->id), 'method' => 'PUT')) }}--}}

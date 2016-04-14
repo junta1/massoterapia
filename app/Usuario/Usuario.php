@@ -18,24 +18,39 @@ class Usuario {
 
     public function save($input) {
         $input['usuario'] = $this->tratarUsuario($input);
-
+//        $input['senha'] = $this->tratarSenha($input);
         return $this->repositorio->save($input);
     }
-    
-/*    
- *    Quando o campo usuario estiver vazio, será feita a junção
- *    entre os dados do campo nome e sobrenome para formar e inserir
- *    no campo usuario.
- */
+
+    /*    Quando o campo usuario estiver vazio, será feita a junção
+     *    entre os dados do campo nome e sobrenome para formar e inserir
+     *    no campo usuario.
+     */
     protected function tratarUsuario($input) {
-        
 //        strtolower retorna string minuscula
 //        $input['usuario'] é o campo usuario
         if ($input['usuario'] == null) {
             $input['usuario'] = strtolower($input['nome']) . strtolower($input['sobrenome']);
         }
-
         return $input['usuario'];
     }
+    
+    protected function tratarSenha($input) {
+        if($input['senha'] == $input['senhaConf']):
+           return $input['senha'];
+        endif;
+            
+    }
 
+    public function find($id) {
+        return $this->repositorio->find($id);
+    }
+    
+    public function update($id, $input) {
+        return $this->repositorio->update($id, $input);
+    }
+    
+    public function delete($id) {
+        return $this->repositorio->delete($id);
+    }
 }

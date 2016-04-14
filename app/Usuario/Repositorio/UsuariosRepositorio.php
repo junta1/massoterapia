@@ -30,5 +30,28 @@ class UsuariosRepositorio {
 //    Método create do model
         return $this->model->create($input);
     }
-
+    
+//    Select com base no id
+    public function find($id) {
+        return $this->model->find($id);
+    }
+    
+    public function update($id, array $input) {
+        
+        $usuarios = $this->model->find($id);
+        $usuarios->nome = $input['nome'];
+        $usuarios->sobrenome = $input['sobrenome'];
+        $usuarios->email = $input['email'];
+        $usuarios->usuario = $input['usuario'];
+        
+        if (isset($input['senha'])) {
+            $usuarios->senha = $input['senha'];
+        }
+        
+        return $usuarios->save();
+    }
+    
+    public function delete($id) {
+        return $this->model->destroy($id);
+    }
 }
