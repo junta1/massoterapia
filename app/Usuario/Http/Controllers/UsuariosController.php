@@ -2,47 +2,52 @@
 
 namespace App\Usuario\Http\Controllers;
 
-use App\Usuario\Model\UsuariosModel;
-use Illuminate\Support\Facades\Input;
-use Illuminate\Http\Request;
+//use App\Usuario\Model\UsuariosModel;
+//use Illuminate\Support\Facades\Input;
+//use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Usuario\Usuario;
 use App\Usuario\Http\Requests\UsuarioValidacao;
 
+
 class UsuariosController extends Controller {
 
-//    Criar um atributo do tipo protected
+//    Criar um atributo do tipo protected.
     protected $usuarios;
 
+//    Criar construtor do tipo usuario, tendo acesso aos demais métodos.
     public function __construct(Usuario $usuarios) {
         $this->usuarios = $usuarios;
     }
 
+//    Serão listados todos os valores dos campos da tabela usuario.
     public function index() {
         $usuarios = $this->usuarios->all();
         return view('usuarios.index', compact('usuarios'));
     }
 
+//    Cria o link para o html de cadastro de usuario.
     public function create() {
         return view('usuarios.create');
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Salva os dados no banco e faz a validação dos campos.
      *
      * @return Response
      */
-    public function store(UsuarioValidacao $validacao ) {
+    public function store(UsuarioValidacao $validacao) {
+
         $this->usuarios->save($validacao->all());
-        
+
         //Redireciona após a execuçã do inserir
         return redirect()->route('usuarios.index');
     }
     
-    /*Inserir sem validar
-    public function store(Request $request) {
-        $this->usuarios->save($request->all());
-    }
+    /* Inserir sem validar
+      public function store(Request $request) {
+      $this->usuarios->save($request->all());
+      }
      */
 
     /**
@@ -63,7 +68,7 @@ class UsuariosController extends Controller {
      */
     public function edit($id) {
         $usuarios = $this->usuarios->find($id);
-        return view('usuarios.edit',  compact('usuarios'));
+        return view('usuarios.edit', compact('usuarios'));
     }
 
     /**
@@ -72,11 +77,10 @@ class UsuariosController extends Controller {
      * @param  int $id
      * @return Response
      */
-    public function update($id, Request $request) {
-        $this->usuarios->update($id, $request->all());
+    public function update($id, UsuarioValidacao $validacaoUp) {
+        $this->usuarios->update($id, $validacaoUp->all());
         return redirect()->route('usuarios.index');
     }
-
     /**
      * Remove the specified resource from storage.
      *

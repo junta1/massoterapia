@@ -1,5 +1,5 @@
 {{--Identificando os erros na tela--}}
-@if (isset($errors))
+@if (count($errors)> 0)
 <div class="alert alert-danger">
     <ul>
         @foreach ($errors->all() as $error)
@@ -28,8 +28,10 @@
 {{ Form::label('senha', 'Senha') }}
 {{ Form::password('senha') }}
 
+{{--
 {{ Form::label('senhaConf', 'Confirmar Senha') }}
 {{ Form::password('senhaConf') }}
+--}}
 
 {{ Form::submit('Cadastrar') }}
 

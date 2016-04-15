@@ -28,7 +28,7 @@ class UsuarioValidacao extends Request {
         if ($this->getByid()) {
 
             return $this->validacaoModoEdicao();
-        };
+        }
 
         return $this->validacaoModoCriacao();
     }
@@ -40,7 +40,17 @@ class UsuarioValidacao extends Request {
             'sobrenome.required' => 'Campo sobrenome obrigatório',
             'email.required' => 'Campo e-mail obrigatório',
             'usuario.required' => 'Campo usuario obrigatório',
-            'senha.required' => 'Campo senha obrigatório'
+            'senha.required' => 'Campo senha obrigatório',
+            
+            'nome.min' => 'Campo mínimo de 1 caracteres',
+            'sobrenome.min' => 'Campo mínimo de 1 caracteres',
+            'usuario.min' => 'Campo mínimo de 6 caracteres',
+            'senha.min' => 'Campo mínimo de 6 caracteres',
+            
+            'nome.max' => 'Campo máximo de 50 caracteres',
+            'sobrenome.max' => 'Campo máximo de 80 caracteres',
+            'usuario.max' => 'Campo máximo de 20 caracteres',
+            'senha.max' => 'Campo máximo de 20 caracteres',
         ];
     }
 
@@ -49,10 +59,10 @@ class UsuarioValidacao extends Request {
         $id = $this->getByid();
 
         return [
-            'nome' => 'required|max:255',
-            'sobrenome' => 'required|max:255',
+            'nome' => 'required|min:1|max:50',
+            'sobrenome' => 'required|min:1|max:80',
             'email' => "required|unique:usuarios,email,{$id}|max:255|email",
-            'usuario' => "unique:usuarios,usuario,{$id}|max:20'"
+            'usuario' => "unique:usuarios,usuario,{$id}|min:6|max:20'"
         ];
     }
 
