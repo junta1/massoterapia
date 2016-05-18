@@ -1,3 +1,7 @@
+@extends('layout.app')
+
+@section('content')
+
 {{--Identificando os erros na tela--}}
 @if (count($errors)> 0)
 <div class="alert alert-danger">
@@ -40,3 +44,5 @@
 <?php
 echo link_to_route('usuarios.index', $title = 'Voltar');
 ?>
+
+@endsection
