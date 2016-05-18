@@ -4,7 +4,7 @@ namespace App\Usuario\Http\Controllers;
 
 //use App\Usuario\Model\UsuariosModel;
 //use Illuminate\Support\Facades\Input;
-//use Illuminate\Http\Request;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Usuario\Usuario;
 use App\Usuario\Http\Requests\UsuarioValidacao;
@@ -25,7 +25,8 @@ class UsuariosController extends Controller {
         $usuarios = $this->usuarios->all();
         return view('usuarios.index', compact('usuarios'));
     }
-
+    
+       
 //    Cria o link para o html de cadastro de usuario.
     public function create() {
         return view('usuarios.create');
@@ -56,8 +57,9 @@ class UsuariosController extends Controller {
      * @param  int $id
      * @return Response
      */
-    public function show($id) {
-        //
+    public function show($id, Request $selectItem) {
+//       $this->usuarios->selectItem($id, $selectItem->all());
+//       return redirect()->route('usuarios.index');
     }
 
     /**

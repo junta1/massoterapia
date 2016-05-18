@@ -15,7 +15,11 @@ class Usuario {
     public function all() {
         return $this->repositorio->all();
     }
-
+    
+    public function selectItem($selectItem) {
+        return $this->repositorio->selectItem($selectItem);
+    }
+    
     public function save($input) {
         $input['usuario'] = $this->tratarUsuario($input);
         return $this->repositorio->save($input);

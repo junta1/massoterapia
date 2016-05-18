@@ -22,7 +22,22 @@ class UsuariosRepositorio {
 //    Select de todos os campos
     public function all() {
 
-        return $this->model->select('id', 'nome', 'sobrenome', 'usuario', 'email', 'created_at', 'updated_at')->get();
+        return $this->model->select('id', 'nome', 'sobrenome', 'usuario', 'email', 'created_at', 'updated_at')->paginate(10);
+
+//      return $this->model->select('id', 'nome', 'sobrenome', 'usuario', 'email', 'created_at', 'updated_at')->get();
+    }
+
+    public function selectItem($selectItem) {
+       
+        return $this->model->select('id', 'nome', 'sobrenome', 'usuario', 'email', 'created_at', 'updated_at')->where('nome', '=', $selectItem)->get();
+        
+        
+//        
+//        if ($select == null):
+//            return $this->model->select('id', 'nome', 'sobrenome', 'usuario', 'email', 'created_at', 'updated_at')->get();
+//        else:
+//            return $this->model->select('id', 'nome', 'sobrenome', 'usuario', 'email', 'created_at', 'updated_at')->where('nome', '=', $selectItem)->get();
+//        endif;
     }
 
 //    Salvando dados com array
@@ -30,28 +45,29 @@ class UsuariosRepositorio {
 //    Método create do model
         return $this->model->create($input);
     }
-    
+
 //    Select com base no id
     public function find($id) {
         return $this->model->find($id);
     }
-    
+
     public function update($id, array $input) {
-        
+
         $usuarios = $this->model->find($id);
         $usuarios->nome = $input['nome'];
         $usuarios->sobrenome = $input['sobrenome'];
         $usuarios->email = $input['email'];
         $usuarios->usuario = $input['usuario'];
-        
+
         if (isset($input['senha'])) {
             $usuarios->senha = $input['senha'];
         }
-        
+
         return $usuarios->save();
     }
-    
+
     public function delete($id) {
         return $this->model->destroy($id);
     }
+
 }
