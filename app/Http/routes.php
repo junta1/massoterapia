@@ -12,13 +12,13 @@
  */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard.index');
 });
 
 //Grupo de Rota criada para utilização do validation display
 Route::group(['middleware' => ['web']], function () {
     
-    Route::resource('usuarios', '\App\Usuario\Http\Controllers\UsuariosController');
+//    Route::resource('usuarios', '\App\Usuario\Http\Controllers\UsuariosController');
     
 });
 /*
