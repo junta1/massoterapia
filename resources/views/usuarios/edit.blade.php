@@ -11,10 +11,6 @@
 </div>
 @endif
 
-{{--{{ Form::open(['action' => ['UsuariosController@edit', $usuarios->id],'method' => 'PUT']) }}--}}
-{{--{{ Form::model($usuarios, array('route' => array('usuarios.edit', $usuarios->id), 'method' => 'PUT')) }}--}}
-{{--{{ Form::model($usuarios, ['method' => 'PATCH', 'action' => ['UsuariosController@update', $usuarios->id]]) }}--}}
-
 {{ Form::model($usuarios,['method' => 'PATCH','route'=>['usuarios.update',$usuarios->id]]) }}
 
 {{ Form::label('nome', 'Nome') }}

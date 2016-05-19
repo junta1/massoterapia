@@ -1,1 +1,1 @@
-teste
+Bem vindo a index

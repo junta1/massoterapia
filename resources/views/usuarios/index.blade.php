@@ -2,9 +2,8 @@
 
 @section('content')
 
-<?php
-echo link_to_route('usuarios.create', $title = 'Clique para Cadastrar Usuário');
-?>
+{{ link_to_route('usuarios.create', 'Novo', null, array('class' => 'btn btn-default')) }}
+
 {{--
 {{ Form::open(array('route' => 'usuarios.show','method' => 'get')) }}
 {{ Form::text('campo_pesquisar', null,
@@ -12,7 +11,7 @@ echo link_to_route('usuarios.create', $title = 'Clique para Cadastrar Usuário')
 {{ Form::submit('Pesquisar') }}
 {{ Form::close() }}
 --}}
-
+<div class="table-responsive"/>
 <table class="table">
     <thead>
     <th>Nome</th>
@@ -33,7 +32,7 @@ echo link_to_route('usuarios.create', $title = 'Clique para Cadastrar Usuário')
         <td>{{$usuario->usuario}}</td>
         <td>{{$usuario->created_at}}</td>
         <td>{{$usuario->updated_at}}</td>
-            
+
         <td>
             {{-- link_to_route('usuarios.edit', $title = 'Editar', $usuario->id, $attributes = []) --}}
             {{ link_to_route('usuarios.edit', '', $usuario->id, array('class' => 'glyphicon glyphicon-edit', 'aria-hidden'=>'true')) }}
@@ -43,6 +42,7 @@ echo link_to_route('usuarios.create', $title = 'Clique para Cadastrar Usuário')
 @endforeach
 
 </table>
+</div>
 
 {{--Paginação de itens --}}
 {{ $usuarios->links() }}

@@ -15,34 +15,36 @@
 
 <H3>Cadastro de Usuário</H3>
 
-{{ Form::open(array('route' => 'usuarios.store','method' => 'post')) }}
+<div class="table-responsive"/>
+<table class="table">
 
-{{ Form::label('nome', 'Nome') }}
-{{ Form::text('nome') }}
+    {{ Form::open(array('route' => 'usuarios.store','method' => 'post')) }}
 
-{{ Form::label('sobrenome', 'Sobrenome') }}
-{{ Form::text('sobrenome') }}
+    <thead>
+    <th>{{ Form::label('nome', 'Nome') }}</th>
+    <th>{{ Form::label('sobrenome', 'Sobrenome') }}</th>
+    <th>{{ Form::label('email', 'Email') }}</th>
 
-{{ Form::label('email', 'Email') }}
-{{ Form::email('email') }}
+    <th>{{ Form::label('usuario', 'Usuário') }}</th>
+    <th>{{ Form::label('senha', 'Senha') }}</th>
+    </thead>
 
-{{ Form::label('usuario', 'Usuário') }}
-{{ Form::text('usuario') }}
+<tr>
+    <td>{{ Form::text('nome') }}</td>
+    <td>{{ Form::text('sobrenome') }}</td>
+    <td>{{ Form::email('email') }}</td>
+    <td>{{ Form::text('usuario') }}</td>
+    <td>{{ Form::password('senha') }}</td>
+</tr>
 
-{{ Form::label('senha', 'Senha') }}
-{{ Form::password('senha') }}
-
-{{--
-{{ Form::label('senhaConf', 'Confirmar Senha') }}
-{{ Form::password('senhaConf') }}
---}}
-
-{{ Form::submit('Cadastrar') }}
+<tr>
+    <td>{{ link_to_route('usuarios.index', 'Voltar', null, array('class' => 'btn btn-default')) }}</td>
+    <td>{{ Form::submit('Cadastrar',array('class' => 'btn btn-default', )) }}</td>
+    <td colspan="3"></td>
+</tr>
 
 {{ Form::close() }}
 
-<?php
-echo link_to_route('usuarios.index', $title = 'Voltar');
-?>
-
+</table>
+</div>
 @endsection

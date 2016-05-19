@@ -22,7 +22,7 @@ class UsuariosRepositorio {
 //    Select de todos os campos
     public function all() {
 
-        return $this->model->select('id', 'nome', 'sobrenome', 'usuario', 'email', 'created_at', 'updated_at')->paginate(10);
+        return $this->model->select('id', 'nome', 'sobrenome', 'usuario', 'email', 'created_at', 'updated_at')->paginate(3);
 
 //      return $this->model->select('id', 'nome', 'sobrenome', 'usuario', 'email', 'created_at', 'updated_at')->get();
     }
