@@ -1,3 +1,7 @@
+@extends('layout.app')
+
+@section('content')
+
 <H3>Edição de Usuário</H3>
 
 {{--Identificando os erros na tela--}}
@@ -11,37 +15,52 @@
 </div>
 @endif
 
+<div class="table-responsive"/>
+<table class="table">
+
 {{ Form::model($usuarios,['method' => 'PATCH','route'=>['usuarios.update',$usuarios->id]]) }}
 
-{{ Form::label('nome', 'Nome') }}
-{{ Form::text('nome') }}
-{{--{{ $errors->first('nome','##Campo Nome Obrigatorio##') }}--}}
+<thead>
+    <th>{{ Form::label('nome', 'Nome') }}</th>
+    <th>{{ Form::label('sobrenome', 'Sobrenome') }}</th>
+    <th>{{ Form::label('email', 'Email') }}</th>
 
-{{ Form::label('sobrenome', 'Sobrenome') }}
-{{ Form::text('sobrenome') }}
+    <th>{{ Form::label('usuario', 'Usuário') }}</th>
+    <th>{{ Form::label('senha', 'Senha') }}</th>
+    </thead>
 
-{{ Form::label('email', 'Email') }}
-{{ Form::text('email') }}
+<tr>
+    <td>{{ Form::text('nome') }}</td>
+    <td>{{ Form::text('sobrenome') }}</td>
+    <td>{{ Form::email('email') }}</td>
+    <td>{{ Form::text('usuario') }}</td>
+    <td>{{ Form::password('senha') }}</td>
+</tr>
 
-{{ Form::label('usuario', 'Usuário') }}
-{{ Form::text('usuario') }}
+<tr>
+    <td>{{ link_to_route('usuarios.index', 'Voltar', null, array('class' => 'btn btn-default')) }}</td>
+    
+    <td>
+    {{ Form::submit('Atualizar',array('class' => 'btn btn-default')) }}
 
-{{ Form::label('senha', 'Senha') }}
-{{ Form::password('senha') }}
+    {{ Form::hidden('id', $usuarios->id) }}
 
-{{ Form::submit('Atualizar') }}
+    {{ Form::close() }}
+    </td>
+    
+    <td>
+    {{ Form::open(['method' => 'DELETE','route'=>['usuarios.destroy',$usuarios->id]]) }}
 
-{{ Form::hidden('id', $usuarios->id) }}
+    {{ Form::submit('Excluir',array('class' => 'btn btn-default')) }}
 
-{{ Form::close() }}
+    {{ Form::close() }}
+    </td>
+
+    <td colspan=""></td>
+</tr>
+
+</table>
+</div>
 
 
-{{ Form::open(['method' => 'DELETE','route'=>['usuarios.destroy',$usuarios->id]]) }}
-
-{{ Form::submit('Excluir') }}
-
-{{ Form::close() }}
-
-<?php
-echo link_to('usuarios', $title = 'Voltar', $attributes = [], $secure = null);
-?>
+@endsection

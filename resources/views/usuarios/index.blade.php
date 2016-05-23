@@ -34,10 +34,10 @@
         <td>{{$usuario->updated_at}}</td>
 
         <td>
-            {{-- link_to_route('usuarios.edit', $title = 'Editar', $usuario->id, $attributes = []) --}}
-            {{ link_to_route('usuarios.edit', '', $usuario->id, array('class' => 'glyphicon glyphicon-edit', 'aria-hidden'=>'true')) }}
+        {{ link_to_route('usuarios.edit', '', $usuario->id, array('class' => 'glyphicon glyphicon-edit', 'aria-hidden'=>'true')) }}
         </td>
-    </tr>
+        
+        </tr>
 </tbody>
 @endforeach
 
