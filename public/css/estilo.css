@@ -9,7 +9,11 @@ and open the template in the editor.
 */
 
 @-moz-document url-prefix() {
-        fieldset {
+    fieldset {
         display: table-cell;
-        }
-        }
+    }
+}
+
+.fundo{
+    margin: 10px 20px 0px;
+}

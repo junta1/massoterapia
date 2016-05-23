@@ -3,24 +3,22 @@
 namespace App\Massoterapia\SintomaCategoria\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-//use App\Massoterapia\SintomaCategoria\Http\Validacao\Request;
 use App\Http\Controllers\Controller;
 
 class SintomaCategoriaController extends Controller
 {
     protected $sintomaCategoria;
 
-//    public function __construct(Usuario $sintomaCategoria) {
+//    public function __construct( $sintomaCategoria) {
 //        $this->sintomaCategoria = $sintomaCategoria;
 //    }
 
     public function index() {
-       
+       return view('sintomacategoria.index', compact('sintomacategoria'));
     }
     
     public function create() {
-        
+       return view('sintomacategoria.create', compact('sintomacategoria'));
     }
 
     /**

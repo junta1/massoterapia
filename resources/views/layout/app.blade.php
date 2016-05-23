@@ -17,9 +17,6 @@
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-        
-
-
     </head>
     <body>
 
@@ -67,9 +64,10 @@
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
-
+        
+        <div class="fundo">
         @yield('content')
-
+        </div>
         <!-- jQuery (obrigatório para plugins JavaScript do Bootstrap) -->
 <!--        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
         <script src="/js/1.11.3-jquery.min.js"></script>
