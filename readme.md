@@ -13,5 +13,5 @@ Cadastro das sessões.
 # Tecnologia usada:
 Laravel 5.2 PHP Framework;
 Mysql;
-Semantic UI;
+Bootstrap 3;
 Javascript;
