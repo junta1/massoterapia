@@ -19,11 +19,9 @@
         <td>{{$sc->nome_categoria}}</td>
         <td>{{$sc->created_at}}</td>
         <td>{{$sc->updated_at}}</td>
-
         <td>
         {{ link_to_route('sintoma-categoria.edit', '', $sc->id, array('class' => 'glyphicon glyphicon-edit', 'aria-hidden'=>'true')) }}
         </td>
-        
     </tr>
 </tbody>
 @endforeach
@@ -32,6 +30,6 @@
 </div>
 
 {{--Paginação de itens --}}
-{{-- $usuarios->links() --}}
+{{$sintomaCategoria->links()}}
 
 @endsection

@@ -41,7 +41,7 @@ class SintomaCategoriaController extends Controller {
      * @param  int $id
      * @return Response
      */
-    public function show($id, Request $selectItem) {
+    public function show($id) {
         
     }
 
@@ -52,7 +52,8 @@ class SintomaCategoriaController extends Controller {
      * @return Response
      */
     public function edit($id) {
-        
+        $sintomaCategoria = $this->sintomaCategoria->find($id);
+        return view('sintomacategoria.edit', compact('sintomaCategoria'));
     }
 
     /**
@@ -61,8 +62,9 @@ class SintomaCategoriaController extends Controller {
      * @param  int $id
      * @return Response
      */
-    public function update($id, UsuarioValidacao $validacaoUp) {
-        
+    public function update($id, Request $request) {
+        $this->sintomaCategoria->update($id, $request->all());
+        return redirect()->route('sintoma-categoria.index');
     }
 
     /**

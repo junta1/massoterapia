@@ -20,10 +20,16 @@ class SintomaCategoria
     
     public function save($input)
     {
-        $dado = [
-          'nome_categoria'=> $input['nomeCategoria']  
-        ];
-        
-        return $this->sintomaCategoriaRepositorio->save($dado);
+        return $this->sintomaCategoriaRepositorio->save($input);
+    }
+    
+    public function find($id) 
+    {
+        return $this->sintomaCategoriaRepositorio->find($id);
+    }
+
+    public function update($id, $input) 
+    {
+        return $this->sintomaCategoriaRepositorio->update($id, $input);
     }
 }

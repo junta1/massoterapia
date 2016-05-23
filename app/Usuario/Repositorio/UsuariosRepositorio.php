@@ -27,19 +27,6 @@ class UsuariosRepositorio {
 //      return $this->model->select('id', 'nome', 'sobrenome', 'usuario', 'email', 'created_at', 'updated_at')->get();
     }
 
-    public function selectItem($selectItem) {
-       
-        return $this->model->select('id', 'nome', 'sobrenome', 'usuario', 'email', 'created_at', 'updated_at')->where('nome', '=', $selectItem)->get();
-        
-        
-//        
-//        if ($select == null):
-//            return $this->model->select('id', 'nome', 'sobrenome', 'usuario', 'email', 'created_at', 'updated_at')->get();
-//        else:
-//            return $this->model->select('id', 'nome', 'sobrenome', 'usuario', 'email', 'created_at', 'updated_at')->where('nome', '=', $selectItem)->get();
-//        endif;
-    }
-
 //    Salvando dados com array
     public function save(array $input) {
 //    Método create do model
