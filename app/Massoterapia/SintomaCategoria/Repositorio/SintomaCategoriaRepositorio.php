@@ -18,11 +18,12 @@ class SintomaCategoriaRepositorio {
     
     public function all()
     {
-        return $this->sintomaCategoriaModel->select('id','nome_sintoma')->get();
+        return $this->sintomaCategoriaModel->select('id','nome_categoria','created_at','updated_at')->paginate(10);
     }
     
     public function save($input) 
     {
-        
+        return $this->sintomaCategoriaModel->create($input);
     }
+    
 }

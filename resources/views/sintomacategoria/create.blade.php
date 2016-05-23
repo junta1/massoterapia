@@ -10,20 +10,18 @@
   </div>
 </div>
 
-<h3></h3>
-
 <div class="table-responsive"/>
 <table class="table">
 
     {{ Form::open(array('route' => 'sintoma-categoria.store','method' => 'post')) }}
 
     <thead>
-    <th colspan="2">{{ Form::label('nome', 'Nome da Categoria') }}</th>
+    <th colspan="2">{{ Form::label('nomeCategoria', 'Nome da Categoria') }}</th>
     <th></th>
     </thead>
 
 <tr>
-    <td colspan="2">{{ Form::text('nome') }}</td>
+    <td colspan="2">{{ Form::text('nomeCategoria') }}</td>
     <td></td>
 </tr>
 
