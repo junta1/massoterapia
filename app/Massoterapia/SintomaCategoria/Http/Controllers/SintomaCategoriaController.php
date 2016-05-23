@@ -4,8 +4,8 @@ namespace App\Massoterapia\SintomaCategoria\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Massoterapia\SintomaCategoria\Http\Validacao\Request;
-use App\Massoterapia\SintomaCategoria\Http\Controllers\Controller;
+//use App\Massoterapia\SintomaCategoria\Http\Validacao\Request;
+use App\Http\Controllers\Controller;
 
 class SintomaCategoriaController extends Controller
 {
