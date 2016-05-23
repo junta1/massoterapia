@@ -53,6 +53,8 @@ class RouteServiceProvider extends ServiceProvider
         $router->group(['namespace' => $this->namespace, 'middleware' => 'web',], function ($router) {
             require app_path('Http/routes.php');
             require app_path('/Usuario/Http/routes.php');
+            require app_path('/Massoterapia/SintomaCategoria/Http/routes.php');
+            
         });
     }
 }

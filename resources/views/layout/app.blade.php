@@ -17,9 +17,6 @@
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-        
-
-
     </head>
     <body>
 
@@ -49,6 +46,9 @@
                                 <li>{{ link_to_route('usuarios.index', 'Cadastrar Usuarios', null)}}</li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="#">Cliente</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li>{{ link_to_route('sintoma-categoria.index', 'Sintomas Categoria', null)}}</li>
+                                <li><a href="#">Sintomas Tipos</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -60,7 +60,6 @@
                         <button type="submit" class="btn btn-default">Buscar</button>
                     </form>
 
-
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
@@ -68,8 +67,7 @@
         @yield('content')
 
         <!-- jQuery (obrigatório para plugins JavaScript do Bootstrap) -->
-<!--        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
-        <script src="/js/1.11.3-jquery.min.js"></script>
+        <script src="/js/1.11.3->-->jquery.min.js"></script>
         <!-- Inclui todos os plugins compilados (abaixo), ou inclua arquivos separadados se necessário -->
         <script src="/js/bootstrap.min.js"></script>
     </body>
