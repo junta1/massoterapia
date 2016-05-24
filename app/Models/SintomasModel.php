@@ -10,7 +10,8 @@ class SintomasModel extends Model
     protected $table = 'tb_sintomas';
     protected $fillable = ['nome_sintomas','fk_categoria_id'];
     
+    
     public function categoria() {
-        $this->hasMany(CategoriaModel::class);
+        return $this->belongsTo(CategoriaModel::class);
     }
 }

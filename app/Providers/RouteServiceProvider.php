@@ -54,7 +54,7 @@ class RouteServiceProvider extends ServiceProvider
             require app_path('Http/routes.php');
             require app_path('/Usuario/Http/routes.php');
             require app_path('/Massoterapia/SintomaCategoria/Http/routes.php');
-            
+            require app_path('/Massoterapia/SintomaTipo/Http/routes.php');
         });
     }
 }
