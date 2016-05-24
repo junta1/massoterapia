@@ -36,16 +36,15 @@ class SintomaCategoriaRepositorio {
     
     public function update($id, array $input) 
     {
-//        $dado = [
-//            'id'=> $id,
-//            'nome_categoria'=>$input['nomeCategoria']
-//        ];
+        $sintomaCategoria = $this->sintomaCategoriaModel->find($id);
+        $sintomaCategoria->nome_categoria = $input['nomeCategoria'];
         
-        $dado = $this->sintomaCategoriaModel->find($id);
-        $dado->nome_categoria = $input['nomeCategoria'];
-        return $dado->save();
-        
-//        return $this->sintomaCategoriaModel->update($dado);
+        return $this->sintomaCategoriaModel->update($sintomaCategoria);
+    }
+    
+    public function delete($id)
+    {
+        return $this->sintomaCategoriaModel->destroy($id);
     }
     
 }

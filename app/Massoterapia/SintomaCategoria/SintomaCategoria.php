@@ -25,11 +25,21 @@ class SintomaCategoria
     
     public function find($id) 
     {
-        return $this->sintomaCategoriaRepositorio->find($id);
+        $sintoma = $this->sintomaCategoriaRepositorio->find($id);
+        $dados = new \stdClass();
+        $dados->id = $sintoma->id;
+        $dados->nomeCategoria = $sintoma->nome_categoria;
+        return $dados;
     }
 
     public function update($id, $input) 
     {
         return $this->sintomaCategoriaRepositorio->update($id, $input);
     }
+    
+    public function delete($id)
+    {
+        return $this->sintomaCategoriaRepositorio->delete($id);
+    }
+       
 }

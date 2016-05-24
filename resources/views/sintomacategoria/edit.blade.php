@@ -39,7 +39,7 @@
     </td>
 
 </tr>
-    {{ Form::close() }}
+{{ Form::close() }}
 </table>
 </div>
 

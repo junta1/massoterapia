@@ -2,7 +2,8 @@
 
 namespace App\Massoterapia\SintomaCategoria\Http\Controllers;
 
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
+use App\Massoterapia\SintomaCategoria\Http\Validacao\SintomaCategoriaValidacao;
 use App\Http\Controllers\Controller;
 use App\Massoterapia\SintomaCategoria\SintomaCategoria;
 
@@ -62,8 +63,8 @@ class SintomaCategoriaController extends Controller {
      * @param  int $id
      * @return Response
      */
-    public function update($id, Request $request) {
-        $this->sintomaCategoria->update($id, $request->all());
+    public function update($id, SintomaCategoriaValidacao $validacao) {
+        $this->sintomaCategoria->update($id, $validacao->all());
         return redirect()->route('sintoma-categoria.index');
     }
 
@@ -74,7 +75,8 @@ class SintomaCategoriaController extends Controller {
      * @return Response
      */
     public function destroy($id) {
-        
+        $this->sintomaCategoria->delete($id);
+        return redirect()->route('sintoma-categoria.index');
     }
 
 }
