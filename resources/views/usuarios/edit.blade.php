@@ -2,8 +2,6 @@
 
 @section('content')
 
-<H3>Edição de Usuário</H3>
-
 {{--Identificando os erros na tela--}}
 @if (count($errors)> 0)
 <div class="alert alert-danger">
@@ -15,52 +13,57 @@
 </div>
 @endif
 
-<div class="table-responsive"/>
-<table class="table">
-
-{{ Form::model($usuarios,['method' => 'PATCH','route'=>['usuarios.update',$usuarios->id]]) }}
-
-<thead>
-    <th>{{ Form::label('nome', 'Nome') }}</th>
-    <th>{{ Form::label('sobrenome', 'Sobrenome') }}</th>
-    <th>{{ Form::label('email', 'Email') }}</th>
-
-    <th>{{ Form::label('usuario', 'Usuário') }}</th>
-    <th>{{ Form::label('senha', 'Senha') }}</th>
-    </thead>
-
-<tr>
-    <td>{{ Form::text('nome') }}</td>
-    <td>{{ Form::text('sobrenome') }}</td>
-    <td>{{ Form::email('email') }}</td>
-    <td>{{ Form::text('usuario') }}</td>
-    <td>{{ Form::password('senha') }}</td>
-</tr>
-
-<tr>
-    <td>{{ link_to_route('usuarios.index', 'Voltar', null, array('class' => 'btn btn-default')) }}</td>
+<div class="container">
     
-    <td>
-    {{ Form::submit('Atualizar',array('class' => 'btn btn-default')) }}
+    <div class="page-header">
+        <h3>
+            Edição de Usuário
+            {{ link_to_route('usuarios.index', 'Voltar', null, array('class' => 'btn btn-info')) }}
+        </h3>
+        
+    </div>
+    <div class='row'>
+        <div class='col-md-6'>
+            {{ Form::model($usuarios,['method' => 'PATCH','route'=>['usuarios.update',$usuarios->id],'class'=>'']) }}
 
-    {{ Form::hidden('id', $usuarios->id) }}
+            <div class="form-group">
+            {{ Form::label('nome', 'Nome') }}
+            {{ Form::text('nome', null, array('class'=>'form-control', 'placeholder'=>'Primeiro Nome', 'autofocus')) }}
+            </div>
 
-    {{ Form::close() }}
-    </td>
-    
-    <td>
-    {{ Form::open(['method' => 'DELETE','route'=>['usuarios.destroy',$usuarios->id]]) }}
+            <div class="form-group">
+            {{ Form::label('sobrenome', 'Sobrenome') }}
+            {{ Form::text('sobrenome', null, array('class'=>'form-control', 'placeholder'=>'Segundo Nome')) }}
+            </div>
 
-    {{ Form::submit('Excluir',array('class' => 'btn btn-default')) }}
+            <div class="form-group">
+            {{ Form::label('email', 'E-mail') }}
+            {{ Form::email('email', null, array('class'=>'form-control', 'placeholder'=>'joao@exemplo.com')) }}
+            </div>
 
-    {{ Form::close() }}
-    </td>
+            <div class="form-group">
+            {{ Form::label('usuario', 'Usuário') }}
+            {{ Form::text('usuario', null, array('class'=>'form-control', 'placeholder'=>'joao168')) }}
+            </div>
 
-    <td colspan=""></td>
-</tr>
+            <div class="form-group">
+            {{ Form::label('senha', 'Senha') }}
+            {{ Form::password('senha', ['class'=>'form-control', 'placeholder'=>'Senha']) }}
+            </div>
 
-</table>
+            {{ Form::submit('Atualizar',array('class' => 'btn btn-success')) }}
+
+            {{ Form::hidden('id', $usuarios->id) }}
+
+            {{ Form::close() }}
+
+            {{ Form::open(['method' => 'DELETE','route'=>['usuarios.destroy',$usuarios->id]]) }}
+
+            {{ Form::submit('Excluir',array('class' => 'btn btn-danger')) }}
+
+            {{ Form::close() }}
+        </div>
+    </div>
 </div>
-
 
 @endsection

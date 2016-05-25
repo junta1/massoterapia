@@ -43,11 +43,11 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cadastro <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li>{{ link_to_route('usuarios.index', 'Cadastrar Usuarios', null)}}</li>
+                                <li>{{ link_to_route('usuarios.index', 'Cadastrar Usuarios')}}</li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="#">Cliente</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li>{{ link_to_route('sintoma-categoria.index', 'Sintomas Categoria', null)}}</li>
+                                <li>{{ link_to_route('sintoma-categoria.index', 'Sintomas Categoria')}}</li>
                                 <li><a href="#">Sintomas Tipos</a></li>
                             </ul>
                         </li>
@@ -65,7 +65,7 @@
             </div><!-- /.container-fluid -->
         </nav>
         
-        <div class="fundo">
+        <div class="container-fluid">
         @yield('content')
         </div>
         <!-- jQuery (obrigatório para plugins JavaScript do Bootstrap) -->

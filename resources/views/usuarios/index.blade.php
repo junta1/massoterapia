@@ -2,7 +2,7 @@
 
 @section('content')
 
-{{ link_to_route('usuarios.create', 'Novo', null, array('class' => 'btn btn-default')) }}
+{{ link_to_route('usuarios.create', 'Novo', null, array('class' => 'btn btn-primary')) }}
 
 {{--
 {{ Form::open(array('route' => 'usuarios.show','method' => 'get')) }}
