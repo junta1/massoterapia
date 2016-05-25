@@ -26,8 +26,8 @@ class SintomaTipoRepositorioTest extends \TestCase
         $this->criarObjeto();
         
         $input = [
-            'nomeSintomas' => 'Repositorio',
-            'categoria' => 6
+            'nomeSintomas' => 'Sintoma com categoria hábito',
+            'categoria' => 2
         ];
         
         $this->sintomaTipoRepositorio->save($input);

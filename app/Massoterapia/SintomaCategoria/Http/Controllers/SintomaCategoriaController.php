@@ -2,7 +2,7 @@
 
 namespace App\Massoterapia\SintomaCategoria\Http\Controllers;
 
-//use Illuminate\Http\Request;
+use Illuminate\Http\Request;
 use App\Massoterapia\SintomaCategoria\Http\Validacao\SintomaCategoriaValidacao;
 use App\Http\Controllers\Controller;
 use App\Massoterapia\SintomaCategoria\SintomaCategoria;

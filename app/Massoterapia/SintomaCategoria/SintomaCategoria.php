@@ -9,8 +9,8 @@ class SintomaCategoria
     
     protected $sintomaCategoriaRepositorio;
     
-    public function __construct(SintomaCategoriaRepositorio $sintomaCategoriaModel) {
-        $this->sintomaCategoriaRepositorio = $sintomaCategoriaModel;
+    public function __construct(SintomaCategoriaRepositorio $sintomaCategoriaRepositorio) {
+        $this->sintomaCategoriaRepositorio = $sintomaCategoriaRepositorio;
     }
     
     public function all()

@@ -33,9 +33,13 @@ class SintomaTipoRepositorio
         return $this->sintomaTipoModel->find($id);
     }
     
-    public function update($id, array $input)
+    public function update($id, $input)
     {
-        return $this->sintomaTipoModel->update($id, $input);
+        $sintomaTipo = $this->sintomaTipoModel->find($id);
+        $sintomaTipo->nome_sintomas = $input['nomeSintomas'];
+        $sintomaTipo->fk_categoria_id = $input['categoria'];
+        
+        return $sintomaTipo->save();
     }
     
     public function delete($id)
