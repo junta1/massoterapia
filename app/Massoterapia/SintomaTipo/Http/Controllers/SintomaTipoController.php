@@ -5,16 +5,26 @@ namespace App\Massoterapia\SintomaTipo\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use App\Massoterapia\SintomaTipo\SintomaTipo;
 
 class SintomaTipoController extends Controller
 {
+    protected $sintomaTipoNegocio;
+    
+    public function __construct(SintomaTipo $sintomaTipoNegocio)
+    {
+        $this->sintomaTipoNegocio = $sintomaTipoNegocio;
+    }
+
+
     public function index()
     {
-        return view('sintomatipo.index');
+        $sintomaTipo = $this->sintomaTipoNegocio->all();
+        return view('sintomatipo.index', compact('sintomaTipo'));
     }
-    
+       
     public function create() {
-        
+        return view('sintomatipo.create');
     }
 
     /**

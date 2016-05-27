@@ -14,22 +14,32 @@ class SintomaTipo
     
     public function all()
     {
-        $this->sintomaTipoRepositorio->all();
+        return $this->sintomaTipoRepositorio->all();
     }
     
-    public function save($input)
+    public function save(array $input)
     {
-        $this->sintomaTipoRepositorio->save($input);
+        return $this->sintomaTipoRepositorio->save($input);
     }
     
     public function find($id)
     {
         $especifico = $this->sintomaTipoRepositorio->find($id);
-        $sintomaEspecifico = new \stdClass();
-        $sintomaEspecifico->id = $especifico->id;
-        $sintomaEspecifico->nomeSintomas = $especifico->nome_sintomas;
         
-        return $sintomaEspecifico;
+//        if (!$especifico) {
+//            throw new Exception('Dados dos sintomas não encontrados!');
+//        }
+        
+        return $this->tratarDadosFind($especifico);
+    }
+    
+    public function tratarDadosFind($dadosMostrar)
+    {
+        return [
+            'id' => $dadosMostrar->id,    
+            'nomeSintomas' => $dadosMostrar->nome_sintomas,
+            'nomeCatgeoria' => $dadosMostrar->nome_categoria
+        ];
     }
     
     public function update($id, array $input)
@@ -39,6 +49,6 @@ class SintomaTipo
     
     public function delete($id)
     {
-        $this->sintomaTipoRepositorio->delete($id);
+        return $this->sintomaTipoRepositorio->delete($id);
     }
 }

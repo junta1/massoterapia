@@ -27,7 +27,7 @@ class SintomaTipoTest extends \TestCase {
         $this->criarObjeto();
         $todos = $this->sintomaTipoRepositorio->all();
         dd($todos);
-        $this->assertNotEmpty($todos);
+//        $this->assertNotEmpty($todos);
     }
     
     /**
@@ -53,8 +53,10 @@ class SintomaTipoTest extends \TestCase {
         $this->criarObjeto();
         $id = 1;
         $especifico = $this->sintomaTipoNegocio->find($id);
-        $esperado = 'Sintoma com categoria tratamento';
-        $this->assertEquals($esperado, $especifico->nomeSintomas);
+//        $esperado = 'pé Atualizado';
+//        $this->assertEquals($esperado, $especifico->nomeSintomas);
+    
+        dd($especifico);
     }
     
     /**
@@ -63,10 +65,10 @@ class SintomaTipoTest extends \TestCase {
     public function testEditar()
     {
         $this->criarObjeto();
-        $id = 2;
+        $id = 1;
         $dados = [
             'id'=>$id,
-            'nomeSintomas' => 'Sintomas Hábito Atualizado',
+            'nomeSintomas' => 'pé Atualizado',
             'categoria'=> 2
         ];
         $editar = $this->sintomaTipoNegocio->update($id, $dados);

@@ -4,13 +4,6 @@
 
 {{ link_to_route('usuarios.create', 'Novo', null, array('class' => 'btn btn-primary')) }}
 
-{{--
-{{ Form::open(array('route' => 'usuarios.show','method' => 'get')) }}
-{{ Form::text('campo_pesquisar', null,
-                           array('placeholder'=>'Pesquisar usuários..')) }}
-{{ Form::submit('Pesquisar') }}
-{{ Form::close() }}
---}}
 <div class="table-responsive"/>
 <table class="table">
     <thead>

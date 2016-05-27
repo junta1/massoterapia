@@ -48,7 +48,7 @@
                                 <li><a href="#">Cliente</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li>{{ link_to_route('sintoma-categoria.index', 'Sintomas Categoria')}}</li>
-                                <li><a href="#">Sintomas Tipos</a></li>
+                                <li>{{ link_to_route('sintoma-tipo.index', 'Sintomas Tipo')}}</li>
                             </ul>
                         </li>
                     </ul>

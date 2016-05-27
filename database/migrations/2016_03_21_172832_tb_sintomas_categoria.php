@@ -12,7 +12,7 @@ class TbCategoria extends Migration
      */
     public function up()
     {
-        Schema::create('tb_categoria',function(Blueprint $table){
+        Schema::create('tb_sintomas_categoria',function(Blueprint $table){
             
         $table->increments('id');
         $table->string('nome_categoria',45);

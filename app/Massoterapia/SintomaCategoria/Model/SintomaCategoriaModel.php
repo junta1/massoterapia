@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class SintomaCategoriaModel extends Model {
 
-    protected $table = 'tb_categoria';
+    protected $table = 'tb_sintomas_categoria';
     protected $fillable = ['nome_categoria'];
 
 }
