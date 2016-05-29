@@ -4,9 +4,9 @@ namespace App\Massoterapia\SintomaTipo\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Requests;
 use App\Massoterapia\SintomaTipo\SintomaTipo;
-
+use App\Massoterapia\SintomaTipo\Http\Validacao\SintomaTipoValidacao;
+use App\Http\Requests\Request;
 class SintomaTipoController extends Controller
 {
     protected $sintomaTipoNegocio;
@@ -16,15 +16,16 @@ class SintomaTipoController extends Controller
         $this->sintomaTipoNegocio = $sintomaTipoNegocio;
     }
 
-
     public function index()
     {
         $sintomaTipo = $this->sintomaTipoNegocio->all();
         return view('sintomatipo.index', compact('sintomaTipo'));
     }
        
-    public function create() {
-        return view('sintomatipo.create');
+    public function create() 
+    {
+        $categoria = $this->sintomaTipoNegocio->allCategoria();
+        return view('sintomatipo.create', compact('categoria'));
     }
 
     /**
@@ -32,8 +33,9 @@ class SintomaTipoController extends Controller
      *
      * @return Response
      */
-    public function store(Request $request) {
-        
+    public function store(Request $validacao) {
+        $this->sintomaTipoNegocio->save($validacao);
+        return redirect()->route('sintoma-tipo.index');
     }
 
     /**
