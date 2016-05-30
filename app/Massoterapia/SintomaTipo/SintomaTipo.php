@@ -37,18 +37,25 @@ class SintomaTipo
     
     public function find($id)
     {
-        $especifico = $this->sintomaTipoRepositorio->find($id);
-        return $this->tratarDadosFind($especifico);
+        $sintomaTipo = $this->sintomaTipoRepositorio->find($id);
+        $dados = new \stdClass();
+        $dados->id = $sintomaTipo->id;
+        $dados->nomeSintomas = $sintomaTipo->nome_sintomas;
+        $dados->nomeCategoria = $sintomaTipo->fk_categoria_id;
+        return $dados;
+         
+//        $especifico = $this->sintomaTipoRepositorio->find($id);
+//        return $this->tratarDadosFind($especifico);
     }
     
-    public function tratarDadosFind($dadosMostrar)
-    {
-        return [
-            'id' => $dadosMostrar->id,    
-            'nomeSintomas' => $dadosMostrar->nome_sintomas,
-            'nomeCatgeoria' => $dadosMostrar->nome_categoria
-        ];
-    }
+//    public function tratarDadosFind($dadosMostrar)
+//    {
+//        return [
+//            'id' => $dadosMostrar->id,    
+//            'nomeSintomas' => $dadosMostrar->nome_sintomas,
+//            'nomeCategoria' => $dadosMostrar->nome_categoria
+//        ];
+//    }
     
     public function update($id, array $input)
     {

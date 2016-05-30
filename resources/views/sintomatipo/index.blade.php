@@ -17,7 +17,10 @@
     <tr>
         <td>{{$st->nome_categoria}}</td>
         <td>{{$st->nome_sintomas}}</td>
-        <td></td>
+        <td>
+            {{ link_to_route('sintoma-tipo.edit', '', $st->id, array('class' => 'glyphicon glyphicon-edit', 'aria-hidden'=>'true')) }}
+        </td>
+    
     </tr>
 </tbody>
 @endforeach

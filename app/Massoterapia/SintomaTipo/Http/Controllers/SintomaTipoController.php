@@ -32,7 +32,8 @@ class SintomaTipoController extends Controller
      *
      * @return Response
      */
-    public function store(Request $request) {
+    public function store(Request $request) 
+    {
         $this->sintomaTipoNegocio->save($request->all());
         return redirect()->route('sintoma-tipo.index');
     }
@@ -43,7 +44,8 @@ class SintomaTipoController extends Controller
      * @param  int $id
      * @return Response
      */
-    public function show($id) {
+    public function show($id) 
+    {
         
     }
 
@@ -53,8 +55,10 @@ class SintomaTipoController extends Controller
      * @param  int $id
      * @return Response
      */
-    public function edit($id) {
-        
+    public function edit($id) 
+    {
+        $sintomaTipo = $this->sintomaTipoNegocio->find($id);
+        return view('sintomatipo.edit', compact('sintomaTipo'));
     }
 
     /**
@@ -63,8 +67,10 @@ class SintomaTipoController extends Controller
      * @param  int $id
      * @return Response
      */
-    public function update($id, Request $request) {
-       
+    public function update($id, Request $request) 
+    {
+        $this->sintomaTipoNegocio->update($id, $request->all());
+        return redirect()->route('sintoma-tipo.index');
     }
 
     /**

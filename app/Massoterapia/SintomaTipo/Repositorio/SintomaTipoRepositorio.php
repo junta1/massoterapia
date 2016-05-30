@@ -46,6 +46,7 @@ class SintomaTipoRepositorio
         $sintomaTipo->fk_categoria_id = $input['nomeCategoria'];
         
         return $sintomaTipo->save();
+                
     }
     
     public function delete($id)
