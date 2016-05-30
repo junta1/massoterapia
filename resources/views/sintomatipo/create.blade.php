@@ -11,21 +11,22 @@
 
     <div class='row'>
         <div class='col-md-6'>
-            {{ Form::open(array('route' => 'sintoma-tipo.store','method' => 'post','class' => '')) }}
+            {{ Form::open(array('route' => 'sintoma-tipo.store','method' => 'post')) }}
 
             <div class="form-group">
-                {{ Form::label('tipoSintoma', 'Tipo de Sintoma') }}
-                {{ Form::text('tipoSintoma','',array('class'=>'form-control', 'placeholder'=>'Tipo de Sintoma')) }}
+                {{ Form::label('nomeSintomas', 'Tipo de Sintoma') }}
+                {{ Form::text('nomeSintomas',null,array('class'=>'form-control', 'placeholder'=>'Tipo de Sintoma')) }}
             </div>
-
+            
             <div class="form-group">
-                {{ Form::Label('categoria', 'Categoria do Sintoma:') }}
-                <select class="form-control" name="item_id">
-                    <option value="0">Selecione a categoria...</option>
+                {{ Form::Label('', 'Categoria do Sintoma:') }}
+                <select name="nomeCategoria" class="form-control">
+                    <option selected>Selecione a categoria...</option>
                     @foreach($categoria as $c)
                     <option value="{{$c->id}}">{{$c->nome_categoria}}</option>
                     @endforeach
                 </select>
+                
             </div>
             {{ Form::submit('Cadastrar',array('class' => 'btn btn-success', )) }}
 

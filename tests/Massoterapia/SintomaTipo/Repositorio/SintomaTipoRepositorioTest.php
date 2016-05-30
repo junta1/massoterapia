@@ -27,7 +27,7 @@ class SintomaTipoRepositorioTest extends \TestCase
         
         $input = [
             'nomeSintomas' => 'Sintoma com categoria hábito',
-            'categoria' => 2
+            'nomeCategoria' => 2
         ];
         
         $this->sintomaTipoRepositorio->save($input);

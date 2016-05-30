@@ -27,7 +27,6 @@ class SintomaTipoRepositorio
           'nome_sintomas'=> $input['nomeSintomas'],
           'fk_categoria_id'=>$input['nomeCategoria']
         ];
-        
         return $this->sintomaTipoModel->create($dado);
     }
     

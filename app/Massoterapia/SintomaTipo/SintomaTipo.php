@@ -17,13 +17,13 @@ class SintomaTipo
         $this->sintomaTipoRepositorio = $sintomaTipoRepositorio;
     }
     
-    public function allCategoria()
+    public function allCategoria($id)
     {
         $this->sintomaCategoriaModel = new \App\Massoterapia\SintomaCategoria\Model\SintomaCategoriaModel;
         $this->sintomaCategoriaRepositorio = new \App\Massoterapia\SintomaCategoria\Repositorio\SintomaCategoriaRepositorio($this->sintomaCategoriaModel);
         $this->sintomaCategoriaNegocio = new \App\Massoterapia\SintomaCategoria\SintomaCategoria($this->sintomaCategoriaRepositorio);
         
-        return $this->sintomaCategoriaNegocio->all();
+        return $this->sintomaCategoriaNegocio->find($id);
     }
     
     public function all()
@@ -31,7 +31,7 @@ class SintomaTipo
         return $this->sintomaTipoRepositorio->all();
     }
     
-    public function save(array $input)
+    public function save($input)
     {
         return $this->sintomaTipoRepositorio->save($input);
     }
