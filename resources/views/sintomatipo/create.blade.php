@@ -17,7 +17,7 @@
                 {{ Form::label('nomeSintomas', 'Tipo de Sintoma') }}
                 {{ Form::text('nomeSintomas',null,array('class'=>'form-control', 'placeholder'=>'Tipo de Sintoma')) }}
             </div>
-            
+
             <div class="form-group">
                 {{ Form::Label('', 'Categoria do Sintoma:') }}
                 <select name="nomeCategoria" class="form-control">
@@ -26,8 +26,24 @@
                     <option value="{{$c->id}}">{{$c->nome_categoria}}</option>
                     @endforeach
                 </select>
-                
+
             </div>
+
+            <div class="form-group">
+                {{ Form::Label('', 'Categoria do Sintoma:') }}
+                <select name="nomeCategoria2" class="form-control">
+
+                    @foreach($categoria as $c)
+                    <option value="{{ $c->id }}" @if(old('categoria')&&old('categoria')== $c->id) selected='selected' @endif >{{ $c->nome_categoria }}</option>
+                    @endforeach
+
+                </select>
+
+            </div>
+            
+            
+  
+
             {{ Form::submit('Cadastrar',array('class' => 'btn btn-success', )) }}
 
             {{ Form::close() }}

@@ -7,7 +7,7 @@ use App\Massoterapia\SintomaTipo\Model\SintomaTipoModel;
 class SintomaTipoRepositorio 
 {
     protected $sintomaTipoModel;
-    
+   
     public function __construct(SintomaTipoModel $sintomaTipoModel)
     {
         $this->sintomaTipoModel = $sintomaTipoModel;
@@ -33,9 +33,9 @@ class SintomaTipoRepositorio
     public function find($id)
     {
          return $this->sintomaTipoModel
-                 ->select('tb_sintomas_categoria.nome_categoria','tb_sintomas.*')
+                 ->select('tb_sintomas_categoria.*','tb_sintomas.*')
                  ->join('tb_sintomas_categoria','tb_sintomas.fk_categoria_id','=','tb_sintomas_categoria.id')
-                 ->where('tb_sintomas_categoria.id','=',$id)
+                 ->where('tb_sintomas.id','=',$id)
                  ->first();
     }
     

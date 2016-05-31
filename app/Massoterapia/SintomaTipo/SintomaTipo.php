@@ -34,14 +34,15 @@ class SintomaTipo
     {
         return $this->sintomaTipoRepositorio->save($input);
     }
-    
+        
     public function find($id)
     {
         $sintomaTipo = $this->sintomaTipoRepositorio->find($id);
         $dados = new \stdClass();
         $dados->id = $sintomaTipo->id;
         $dados->nomeSintomas = $sintomaTipo->nome_sintomas;
-        $dados->nomeCategoria = $sintomaTipo->fk_categoria_id;
+        $dados->nomeCategoria = $sintomaTipo->nome_categoria;
+        $dados->idCategoria = $sintomaTipo->fk_categoria_id;
         return $dados;
          
 //        $especifico = $this->sintomaTipoRepositorio->find($id);

@@ -57,8 +57,15 @@ class SintomaTipoController extends Controller
      */
     public function edit($id) 
     {
+//        $categoria1 = new \App\Massoterapia\SintomaCategoria\Model\SintomaCategoriaModel();
+//        $categoria2= new \App\Massoterapia\SintomaCategoria\Repositorio\SintomaCategoriaRepositorio($categoria1);
+//        $categoria3 = new \App\Massoterapia\SintomaCategoria\SintomaCategoria($categoria2);
+//        
+//        $categoria = $categoria3->all();
+
+        $categoria = $this->sintomaTipoNegocio->allCategoria();
         $sintomaTipo = $this->sintomaTipoNegocio->find($id);
-        return view('sintomatipo.edit', compact('sintomaTipo'));
+        return view('sintomatipo.edit', compact('sintomaTipo','categoria'));
     }
 
     /**
