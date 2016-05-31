@@ -18,6 +18,7 @@ class SintomaTipoRepositorio
         return $this->sintomaTipoModel
                  ->select('tb_sintomas_categoria.nome_categoria','tb_sintomas.*')
                  ->join('tb_sintomas_categoria','tb_sintomas.fk_categoria_id','=','tb_sintomas_categoria.id')
+                 ->orderBy('tb_sintomas_categoria.nome_categoria', 'asc')
                  ->paginate(10);
     }
     

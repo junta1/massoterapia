@@ -87,6 +87,7 @@ class SintomaTipoController extends Controller
      * @return Response
      */
     public function destroy($id) {
-        
+        $this->sintomaTipoNegocio->delete($id);
+        return redirect()->route('sintoma-tipo.index');
     }
 }

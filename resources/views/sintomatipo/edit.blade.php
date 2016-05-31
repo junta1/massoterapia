@@ -3,11 +3,16 @@
 @section('content')
 
 <div class="container">
-    <div class="page-header">
-        <h3>
-            Edição do Tipo do Sintoma
-            {{ link_to_route('sintoma-tipo.index', 'Voltar', null, array('class' => 'btn btn-info')) }}
-        </h3>
+
+    <div class="row">
+        <div class='col-md-6'>
+            <div class='col-md-10'>
+                <h3>Edição do Tipo de Sintoma</h3>
+            </div>
+            <div class='col-md-2' text-center>
+                <h3>{{ link_to_route('sintoma-tipo.index', 'Voltar', null, array('class' => 'btn btn-info')) }}</h3>
+            </div>
+        </div>
     </div>
 
     <div class='row'>
@@ -24,7 +29,7 @@
                 {{-- Form::label('nomeCategoria', 'Tipo de categoria') --}}
                 {{-- Form::text('nomeCategoria', null, array('class'=>'form-control')) --}}
             </div>
-            
+
             <div class="form-group">
                 {{ Form::Label('', 'Categoria do Sintoma:') }}
                 <select name="nomeCategoria" class="form-control">
@@ -34,13 +39,22 @@
                     @endforeach
                 </select>
             </div>
-            
-            {{ Form::submit('Atualizar',array('class' => 'btn btn-success', )) }}
+                       
+            <div class="col-md-2">
+                {{ Form::submit('Atualizar',array('class' => 'btn btn-success', )) }}
 
-            {{ Form::hidden('id', $sintomaTipo->id) }}
+                {{ Form::hidden('id', $sintomaTipo->id) }}
 
-            {{ Form::close() }}  
+                {{ Form::close() }}
+            </div>
 
+            <div class="col-md-2">
+                {{ Form::open(['method' => 'DELETE','route'=>['sintoma-tipo.destroy',$sintomaTipo->id]]) }}
+
+                {{ Form::submit('Excluir',array('class' => 'btn btn-danger')) }}
+
+                {{ Form::close() }}
+            </div>
         </div>
     </div>
 </div>

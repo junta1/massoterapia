@@ -2,13 +2,18 @@
 @section('content')
 
 <div class="container">
-    <div class="page-header">
-        <h3>
-            Cadastro do Tipo de Sintoma
-            {{ link_to_route('sintoma-tipo.index', 'Voltar', null, array('class' => 'btn btn-info')) }}
-        </h3>
+    
+    <div class="row">
+        <div class='col-md-6'>
+            <div class='col-md-10'>
+                <h3>Cadastro do Tipo de Sintoma</h3>
+            </div>
+            <div class='col-md-2' text-center>
+                <h3>{{ link_to_route('sintoma-tipo.index', 'Voltar', null, array('class' => 'btn btn-info')) }}</h3>
+            </div>
+        </div>
     </div>
-
+    
     <div class='row'>
         <div class='col-md-6'>
             {{ Form::open(array('route' => 'sintoma-tipo.store','method' => 'post')) }}
@@ -19,7 +24,7 @@
             </div>
 
             <div class="form-group">
-                {{ Form::Label('', 'Categoria do Sintoma:') }}
+                {{ Form::Label('nomeCategoria', 'Categoria do Sintoma:') }}
                 <select name="nomeCategoria" class="form-control">
                     <option selected>Selecione a categoria...</option>
                     @foreach($categoria as $c)
@@ -28,22 +33,16 @@
                 </select>
 
             </div>
-
+{{--
             <div class="form-group">
                 {{ Form::Label('', 'Categoria do Sintoma:') }}
                 <select name="nomeCategoria2" class="form-control">
-
                     @foreach($categoria as $c)
                     <option value="{{ $c->id }}" @if(old('categoria')&&old('categoria')== $c->id) selected='selected' @endif >{{ $c->nome_categoria }}</option>
                     @endforeach
-
                 </select>
-
             </div>
-            
-            
-  
-
+--}}
             {{ Form::submit('Cadastrar',array('class' => 'btn btn-success', )) }}
 
             {{ Form::close() }}
