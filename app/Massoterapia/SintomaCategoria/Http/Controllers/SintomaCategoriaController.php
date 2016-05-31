@@ -63,8 +63,8 @@ class SintomaCategoriaController extends Controller {
      * @param  int $id
      * @return Response
      */
-    public function update($id, SintomaCategoriaValidacao $validacao) {
-        $this->sintomaCategoria->update($id, $validacao->all());
+    public function update($id, Request $request) {
+        $this->sintomaCategoria->update($id, $request->all());
         return redirect()->route('sintoma-categoria.index');
     }
 

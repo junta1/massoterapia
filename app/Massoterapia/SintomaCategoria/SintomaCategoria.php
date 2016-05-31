@@ -18,7 +18,7 @@ class SintomaCategoria
         return $this->sintomaCategoriaRepositorio->all();
     }
     
-    public function save($input)
+    public function save(array $input)
     {
         return $this->sintomaCategoriaRepositorio->save($input);
     }
@@ -32,7 +32,7 @@ class SintomaCategoria
         return $dados;
     }
 
-    public function update($id, $input) 
+    public function update($id, array $input) 
     {
         return $this->sintomaCategoriaRepositorio->update($id, $input);
     }

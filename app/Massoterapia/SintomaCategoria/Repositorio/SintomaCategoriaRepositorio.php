@@ -18,7 +18,7 @@ class SintomaCategoriaRepositorio {
     
     public function all()
     {
-        return $this->sintomaCategoriaModel->select('id','nome_categoria','created_at','updated_at')->paginate(10);
+        return $this->sintomaCategoriaModel->select('id','nome_categoria')->paginate(10);
     }
     
     public function save(array $input) 
@@ -39,7 +39,7 @@ class SintomaCategoriaRepositorio {
         $sintomaCategoria = $this->sintomaCategoriaModel->find($id);
         $sintomaCategoria->nome_categoria = $input['nomeCategoria'];
         
-        return $this->sintomaCategoriaModel->update($sintomaCategoria);
+        return $sintomaCategoria->save();
     }
     
     public function delete($id)
