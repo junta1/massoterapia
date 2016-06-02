@@ -2,6 +2,17 @@
 
 @section('content')
 
+{{--Identificando os erros na tela--}}
+@if (count($errors)> 0)
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
+
 <div class="container">
 
     <div class="row">
@@ -33,7 +44,7 @@
             <div class="form-group">
                 {{ Form::Label('', 'Categoria do Sintoma:') }}
                 <select name="nomeCategoria" class="form-control">
-                    <option selected>Selecione a categoria...</option>
+                    <option value="" selected>Selecione a categoria...</option>
                     @foreach($categoria as $c)
                     <option value="{{$c->id}}" @if($c->id == $sintomaTipo->idCategoria) selected='selected' @endif >{{$c->nome_categoria}}</option>
                     @endforeach

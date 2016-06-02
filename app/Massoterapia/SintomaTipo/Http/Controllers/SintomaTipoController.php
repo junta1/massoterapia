@@ -5,6 +5,7 @@ namespace App\Massoterapia\SintomaTipo\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Massoterapia\SintomaTipo\SintomaTipo;
+use App\Massoterapia\SintomaTipo\Http\Validacao\SintomaTipoValidacao;
 
 class SintomaTipoController extends Controller
 {
@@ -32,7 +33,7 @@ class SintomaTipoController extends Controller
      *
      * @return Response
      */
-    public function store(Request $request) 
+    public function store(SintomaTipoValidacao $request) 
     {
         $this->sintomaTipoNegocio->save($request->all());
         return redirect()->route('sintoma-tipo.index');
@@ -57,12 +58,6 @@ class SintomaTipoController extends Controller
      */
     public function edit($id) 
     {
-//        $categoria1 = new \App\Massoterapia\SintomaCategoria\Model\SintomaCategoriaModel();
-//        $categoria2= new \App\Massoterapia\SintomaCategoria\Repositorio\SintomaCategoriaRepositorio($categoria1);
-//        $categoria3 = new \App\Massoterapia\SintomaCategoria\SintomaCategoria($categoria2);
-//        
-//        $categoria = $categoria3->all();
-
         $categoria = $this->sintomaTipoNegocio->allCategoria();
         $sintomaTipo = $this->sintomaTipoNegocio->find($id);
         return view('sintomatipo.edit', compact('sintomaTipo','categoria'));
@@ -74,7 +69,7 @@ class SintomaTipoController extends Controller
      * @param  int $id
      * @return Response
      */
-    public function update($id, Request $request) 
+    public function update($id, SintomaTipoValidacao $request) 
     {
         $this->sintomaTipoNegocio->update($id, $request->all());
         return redirect()->route('sintoma-tipo.index');

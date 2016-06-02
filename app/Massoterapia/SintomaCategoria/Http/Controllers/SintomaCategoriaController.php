@@ -29,7 +29,7 @@ class SintomaCategoriaController extends Controller {
      *
      * @return Response
      */
-    public function store(Request $request) {
+    public function store(SintomaCategoriaValidacao $request) {
         $this->sintomaCategoria->save($request->all());
 
         //Redireciona após a execuçã do inserir
@@ -63,7 +63,7 @@ class SintomaCategoriaController extends Controller {
      * @param  int $id
      * @return Response
      */
-    public function update($id, Request $request) {
+    public function update($id, SintomaCategoriaValidacao $request) {
         $this->sintomaCategoria->update($id, $request->all());
         return redirect()->route('sintoma-categoria.index');
     }
