@@ -25,8 +25,6 @@ class TbCadastroEndereco extends Migration {
             $table->string('cep', 14);
             $table->string('bairro', 45);
             $table->string('telefone', 10);
-            $table->rememberToken();
-            $table->timestamps();
             
             $table->unsignedInteger('fk_pais_id');
 //            $table->foreign('fk_pais_id')->references('id')->on('tb_pais');

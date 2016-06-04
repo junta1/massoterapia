@@ -15,8 +15,6 @@ class TbCadastroPlano extends Migration
         Schema::create('tb_cadastro_plano', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nome_plano',80);
-            $table->rememberToken();
-            $table->timestamps();
         });
     }
 

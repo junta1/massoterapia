@@ -16,8 +16,6 @@ class TbPais extends Migration
             $table->increments('id');
             $table->string('nome', 60);
             $table->string('sigla', 10);
-            $table->rememberToken();
-            $table->timestamps();
         });
     }
 

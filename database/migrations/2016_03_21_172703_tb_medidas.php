@@ -15,8 +15,6 @@ class TbMedidas extends Migration {
             $table->increments('id');
             $table->string('nome_area_medida', 80);
             $table->double('unidade_medida');
-            $table->rememberToken();
-            $table->timestamps();
         });
     }
 

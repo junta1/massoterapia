@@ -21,9 +21,6 @@ class TbMedidasPaciente extends Migration {
      */
     public function up() {
         Schema::create('tb_medidas_paciente', function (Blueprint $table) {
-            $table->rememberToken();
-            $table->timestamps();
-            
             $table->unsignedInteger('fk_medidas_id');
             $table->unsignedInteger('fk_paciente_id');
 //            $table->foreign('fk_medidas_id')->references('id')->on('tb_medidas');

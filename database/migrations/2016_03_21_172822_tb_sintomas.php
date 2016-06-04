@@ -22,8 +22,6 @@ class TbSintomas extends Migration {
 
             $table->increments('id');
             $table->string('nome_sintomas', 255);
-            $table->rememberToken();
-            $table->timestamps();
             
             $table->unsignedInteger('fk_categoria_id');
 //            $table->foreign('fk_categoria_id')->references('id')->on('tb_categoria');

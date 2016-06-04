@@ -16,9 +16,6 @@ class TbCategoria extends Migration
             
         $table->increments('id');
         $table->string('nome_categoria',45);
-        $table->rememberToken();
-        $table->timestamps();
-        
         });
     }
 

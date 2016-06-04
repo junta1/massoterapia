@@ -22,8 +22,6 @@ class TbEstado extends Migration {
             $table->increments('id');
             $table->string('nome', 75);
             $table->string('uf', 5);
-            $table->rememberToken();
-            $table->timestamps();
             
             $table->unsignedInteger('fk_pais_id');
 //            $table->foreign('fk_pais_id')->references('id')->on('tb_pais');

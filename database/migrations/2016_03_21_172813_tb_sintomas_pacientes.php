@@ -22,9 +22,6 @@ class TbSintomasPacientes extends Migration {
     public function up() {
         Schema::create('tb_sintomas_pacientes', function(Blueprint $table) {
 
-            $table->rememberToken();
-            $table->timestamps();
-            
             $table->unsignedInteger('fk_sintomas_id');
             $table->unsignedInteger('fk_paciente_id');
 //            $table->foreign('fk_sintomas_id')->references('id')->on('tb_sintomas');
