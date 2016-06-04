@@ -11,9 +11,9 @@ class FkSintomas extends Migration {
      * @return void
      */
     public function up() {
-        Schema::table('tb_sintomas', function ($table) {
+        Schema::table('tb_sintomas', function (Blueprint $table) {
 
-            $table->foreign('fk_categoria_id')->references('id')->on('tb_categoria');
+            $table->foreign('fk_categoria_id')->references('id')->on('tb_sintomas_categoria');
         });
     }
 

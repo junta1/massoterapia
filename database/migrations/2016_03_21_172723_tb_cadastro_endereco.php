@@ -16,7 +16,8 @@ class TbCadastroEndereco extends Migration {
      * O campo fk_pais_id da tabela tb_endereco é chave estrangeira do campo id
      * da tabela tb_pais.
      */
-    public function up() {
+    public function up() 
+    {
         Schema::create('tb_cadastro_endereco', function (Blueprint $table) {
             $table->increments('id');
             $table->string('tipo_endereco', 45);
@@ -26,7 +27,8 @@ class TbCadastroEndereco extends Migration {
             $table->string('bairro', 45);
             $table->string('telefone', 10);
             
-            $table->unsignedInteger('fk_pais_id');
+            $table->unsignedInteger('fk_paciente_id');
+            $table->unsignedInteger('fk_cidade_id');
 //            $table->foreign('fk_pais_id')->references('id')->on('tb_pais');
         });
     }

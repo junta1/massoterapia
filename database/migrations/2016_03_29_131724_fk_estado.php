@@ -11,7 +11,7 @@ class FkEstado extends Migration {
      * @return void
      */
     public function up() {
-        Schema::table('tb_estado', function ($table) {
+        Schema::table('tb_estado', function (Blueprint $table) {
 
             $table->foreign('fk_pais_id')->references('id')->on('tb_pais');
         });

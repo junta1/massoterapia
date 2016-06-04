@@ -10,8 +10,9 @@ class FkMedidasPaciente extends Migration {
      *
      * @return void
      */
-    public function up() {
-        Schema::table('tb_medidas_paciente', function ($table) {
+    public function up() 
+    {
+        Schema::table('tb_medidas_paciente', function (Blueprint $table) {
 
             $table->foreign('fk_medidas_id')->references('id')->on('tb_medidas');
             $table->foreign('fk_paciente_id')->references('id')->on('tb_cadastro_paciente');

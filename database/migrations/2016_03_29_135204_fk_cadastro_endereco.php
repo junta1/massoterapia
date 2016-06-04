@@ -12,9 +12,10 @@ class FkCadastroEndereco extends Migration
      */
     public function up()
     {
-        Schema::table('tb_cadastro_endereco', function ($table) {
-
-            $table->foreign('fk_pais_id')->references('id')->on('tb_pais');
+        Schema::table('tb_cadastro_endereco', function (Blueprint $table) {
+            
+            $table->foreign('fk_cidade_id')->references('id')->on('tb_cidade');
+            $table->foreign('fk_paciente_id')->references('id')->on('tb_cadastro_paciente');
         });
     }
 
