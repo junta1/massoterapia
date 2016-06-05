@@ -26,7 +26,6 @@ class TbCadastroPaciente extends Migration {
             $table->increments('id');
             $table->string('nome_pac', 80);
             $table->string('cpf_pac', 14)->unique();
-            $table->integer('cod_plano');
             $table->string('email_pac', 60)->unique();
             $table->date('nascimento_pac');
             $table->string('sexo_pac', 1);
