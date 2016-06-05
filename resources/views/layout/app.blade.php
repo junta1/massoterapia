@@ -43,9 +43,9 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cadastro <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li>{{ link_to_route('usuarios.index', 'Cadastrar Usuarios')}}</li>
+                                <li>{{ link_to_route('usuarios.index', 'Usuarios - Cadastrar')}}</li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="#">Cliente</a></li>
+                                <li>{{ link_to_route('paciente-cadastro.index', 'Cliente Cadastro')}}</li>
                                 <li role="separator" class="divider"></li>
                                 <li>{{ link_to_route('sintoma-categoria.index', 'Sintomas Categoria')}}</li>
                                 <li>{{ link_to_route('sintoma-tipo.index', 'Sintomas Tipo')}}</li>

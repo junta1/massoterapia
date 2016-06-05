@@ -25,11 +25,26 @@ class PacienteCadastroValidacao extends Request{
     public function messages() {
 
         return [
-            'nomeCategoria.required' => 'Campo Nome da Categoria é obrigatório',
+            'nomePaciente.required' => 'Campo Nome do paciente é obrigatório',
+            'nomePaciente.max' => 'Campo Nome do paciente máximo de 50 caracteres',
+            'nomePaciente.min' => 'Campo Nome do paciente mínimo de 10 caracteres',
             
-            'nomeCategoria.min' => 'Campo mínimo de 2 caracteres',
+            'cpfPaciente.required' => 'Campo CPF é obrigatório',
+            'cpfPaciente.max' => 'Campo CPF máximo de 11 caracteres',
+            'cpfPaciente.min' => 'Campo CPF mínimo de 11 caracteres',
             
-            'nomeCategoria.max' => 'Campo máximo de 50 caracteres'
+            'emailPaciente.required' => 'Campo E-mail é obrigatório',
+            'emailPaciente.max' => 'Campo E-mail máximo de 50 caracteres',
+            'emailPaciente.min' => 'Campo E-mail mínimo de 10 caracteres',
+            
+            'dataNascimentoPaciente.required' => 'Campo Data de Nascimento é obrigatório',
+            'dataNascimentoPaciente.max' => 'Campo Data máximo de 10 caracteres',
+            'dataNascimentoPaciente.min' => 'Campo Data mínimo de 10 caracteres',
+            
+            'sexoPaciente.required' => 'Campo Sexo é obrigatório',
+            'sexoPaciente.max' => 'Campo Sexo máximo de 1 caracteres',
+            
+            
         ];
     }
 
@@ -38,14 +53,22 @@ class PacienteCadastroValidacao extends Request{
         $id = $this->getByid();
 
         return [
-            'nomeCategoria' => "required|min:2|unique:nomeCategoria,{$id}|max:50"
+            'nomePaciente' => "required|min:10|max:50",
+            'cpfPaciente' => "required|min:11|max:11",
+            'emailPaciente' => "required|min:10|max:50",
+            'dataNascimentoPaciente' => "required|min:10|max:10",
+            'sexoPaciente' => "required|min:1|max:1"
         ];
     }
 
     protected function validacaoModoCriacao() {
 
         return [
-            'nomeCategoria' => 'required|unique:nomeCategoria|min:2|max:50'
+            'nomePaciente' => "required|min:10|max:50",
+            'cpfPaciente' => "required|min:11|max:11",
+            'emailPaciente' => "required|min:10|max:50",
+            'dataNascimentoPaciente' => "required|min:10|max:10",
+            'sexoPaciente' => "required|max:1"
         ];
     }
 

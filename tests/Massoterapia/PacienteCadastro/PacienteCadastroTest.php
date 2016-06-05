@@ -39,8 +39,8 @@ class PacienteCadastroTest extends \TestCase
         
         $input = [
             'nomePaciente' => 'Rafael negocio',
-            'cpfPaciente' => '012345678',
-            'emailPaciente' => 'rafa3@email.com',
+            'cpfPaciente' => '012345648',
+            'emailPaciente' => 'rafa4@email.com',
             'dataNascimentoPaciente' => '1990/04/22',
             'sexoPaciente' =>'m'
         ];

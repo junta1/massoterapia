@@ -7,20 +7,24 @@ use App\Massoterapia\SintomaCategoria\Http\Validacao\SintomaCategoriaValidacao;
 use App\Http\Controllers\Controller;
 use App\Massoterapia\SintomaCategoria\SintomaCategoria;
 
-class SintomaCategoriaController extends Controller {
+class SintomaCategoriaController extends Controller
+{
 
     protected $sintomaCategoria;
 
-    public function __construct(SintomaCategoria $sintomaCategoria) {
+    public function __construct(SintomaCategoria $sintomaCategoria)
+    {
         $this->sintomaCategoria = $sintomaCategoria;
     }
 
-    public function index() {
+    public function index()
+    {
         $sintomaCategoria = $this->sintomaCategoria->all();
         return view('sintomacategoria.index', compact('sintomaCategoria'));
     }
 
-    public function create() {
+    public function create()
+    {
         return view('sintomacategoria.create');
     }
 
@@ -29,7 +33,8 @@ class SintomaCategoriaController extends Controller {
      *
      * @return Response
      */
-    public function store(SintomaCategoriaValidacao $request) {
+    public function store(SintomaCategoriaValidacao $request)
+    {
         $this->sintomaCategoria->save($request->all());
 
         //Redireciona após a execuçã do inserir
@@ -42,7 +47,8 @@ class SintomaCategoriaController extends Controller {
      * @param  int $id
      * @return Response
      */
-    public function show($id) {
+    public function show($id)
+    {
         
     }
 
@@ -52,7 +58,8 @@ class SintomaCategoriaController extends Controller {
      * @param  int $id
      * @return Response
      */
-    public function edit($id) {
+    public function edit($id)
+    {
         $sintomaCategoria = $this->sintomaCategoria->find($id);
         return view('sintomacategoria.edit', compact('sintomaCategoria'));
     }
@@ -63,7 +70,8 @@ class SintomaCategoriaController extends Controller {
      * @param  int $id
      * @return Response
      */
-    public function update($id, SintomaCategoriaValidacao $request) {
+    public function update($id, SintomaCategoriaValidacao $request)
+    {
         $this->sintomaCategoria->update($id, $request->all());
         return redirect()->route('sintoma-categoria.index');
     }
@@ -74,7 +82,8 @@ class SintomaCategoriaController extends Controller {
      * @param  int $id
      * @return Response
      */
-    public function destroy($id) {
+    public function destroy($id)
+    {
         $this->sintomaCategoria->delete($id);
         return redirect()->route('sintoma-categoria.index');
     }

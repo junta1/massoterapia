@@ -54,7 +54,7 @@
                 </select>
             </div>
 --}}
-            {{ Form::submit('Cadastrar',array('class' => 'btn btn-success', )) }}
+            {{ Form::submit('Cadastrar',array('class' => 'btn btn-success')) }}
 
             {{ Form::close() }}
         </div>

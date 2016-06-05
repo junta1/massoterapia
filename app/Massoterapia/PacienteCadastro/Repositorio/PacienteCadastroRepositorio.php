@@ -15,7 +15,7 @@ class PacienteCadastroRepositorio
     
     public function all()
     {
-        return $this->pacienteCadastroModel->select('tb_cadastro_paciente.*')->paginate(10);
+        return $this->pacienteCadastroModel->select('id','nome_pac','cpf_pac','email_pac','nascimento_pac','sexo_pac')->paginate(10);
     }
     
     public function save(array $input)

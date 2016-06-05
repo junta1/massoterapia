@@ -1,8 +1,63 @@
-<?php
+@extends('layout.app')
+@section('content')
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+{{--Identificando os erros na tela--}}
+@if (count($errors)> 0)
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
 
+<div class="container">
+
+    <div class="row">
+        <div class='col-md-6'>
+            <div class='col-md-10'>
+                <h3>Lista dos Pacientes</h3>
+            </div>
+            <div class='col-md-2' text-center>
+                <h3>{{ link_to_route('paciente-cadastro.create', 'Novo', null, array('class' => 'btn btn-primary', 'data-toggle'=>'tooltip', 'title'=>'Criar novo Paciente')) }}</h3>
+            </div>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-md-12'>
+            <div class="table-responsive"/>
+                <table class="table">
+                    <thead>
+                    <th>Nome do Paciente</th>
+                    <th>CPF</th>
+                    <th>E-mail</th>
+                    <th>Data de nascimento</th>
+                    <th>Sexo</th>
+                    
+                    <th>Ação</th>
+                    </thead>
+
+                    @foreach ($pacienteCadastro as $pc)
+                    <tbody>
+                        <tr>
+                            <td>{{$pc->nome_pac}}</td>
+                            <td>{{$pc->cpf_pac}}</td>
+                            <td>{{$pc->email_pac}}</td>
+                            <td>{{$pc->nascimento_pac}}</td>
+                            <td>{{$pc->sexo_pac}}</td>
+                            
+                            <td>
+                                {{ link_to_route('paciente-cadastro.edit', '', $pc->id, array('class' => 'glyphicon glyphicon-edit', 'aria-hidden'=>'true', 'data-toggle'=>'tooltip', 'title'=>'Editar o Paciente')) }}
+                            </td>
+                        </tr>
+                    </tbody>
+                    @endforeach
+                </table>
+            </div>
+        </div>
+        {{--Paginação de itens --}}
+        {{--$pacienteCadastro->links()--}}
+    </div>
+</div>
+@endsection
