@@ -18,7 +18,7 @@ class PacienteCadastro
     {
         return $this->pacienteCadastroRepositorio->all();
     }
-
+        
     public function save(array $input)
     {
 
