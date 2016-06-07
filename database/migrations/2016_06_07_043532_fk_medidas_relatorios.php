@@ -3,19 +3,18 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class FkMedidasPaciente extends Migration {
-
+class FkMedidasRelatorios extends Migration
+{
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up() 
+    public function up()
     {
-        Schema::table('tb_medidas_paciente', function (Blueprint $table) {
+        Schema::table('tb_medidas_relatorios', function (Blueprint $table) {
 
             $table->foreign('fk_medidas_id')->references('id')->on('tb_medidas');
-            $table->foreign('fk_paciente_id')->references('id')->on('tb_cadastro_paciente');
         });
     }
 
@@ -24,8 +23,8 @@ class FkMedidasPaciente extends Migration {
      *
      * @return void
      */
-    public function down() {
+    public function down()
+    {
         //
     }
-
 }

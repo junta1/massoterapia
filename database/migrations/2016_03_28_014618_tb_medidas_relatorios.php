@@ -3,17 +3,18 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TbMedidas extends Migration {
-
+class TbMedidasRelatorios extends Migration
+{
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up() {
-        Schema::create('tb_medidas', function (Blueprint $table) {
+    public function up()
+    {
+        Schema::create('tb_medidas_relatorios', function(Blueprint $table){
             $table->increments('id');
-            $table->string('nome_area_medida', 80);
+            $table->unsignedInteger('fk_medidas_id');
         });
     }
 
@@ -22,8 +23,8 @@ class TbMedidas extends Migration {
      *
      * @return void
      */
-    public function down() {
-        Schema::drop('tb_medidas');
+    public function down()
+    {
+        //
     }
-
 }

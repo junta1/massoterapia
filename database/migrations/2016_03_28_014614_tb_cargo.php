@@ -3,17 +3,19 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TbMedidas extends Migration {
-
+class TbCargo extends Migration
+{
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up() {
-        Schema::create('tb_medidas', function (Blueprint $table) {
+    public function up()
+    {
+        Schema::create('tb_cargo', function(Blueprint $table){
             $table->increments('id');
-            $table->string('nome_area_medida', 80);
+            $table->string('nome_cargo',255);
+            
         });
     }
 
@@ -22,8 +24,8 @@ class TbMedidas extends Migration {
      *
      * @return void
      */
-    public function down() {
-        Schema::drop('tb_medidas');
+    public function down()
+    {
+        Schema::drop('tb_cargo');
     }
-
 }

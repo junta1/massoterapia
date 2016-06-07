@@ -30,11 +30,6 @@ class TbCadastroPaciente extends Migration {
             $table->date('nascimento_pac');
             $table->string('sexo_pac', 1);
             $table->timestamps();
-
-            $table->unsignedInteger('fk_endereco_id');
-            
-//            $table->foreign('fk_endereco_id')->references('id')->on('tb_cadastro_endereco');
-//            $table->foreign('fk_plano_id')->references('id')->on('tb_cadastro_plano');
         });
     }
 
