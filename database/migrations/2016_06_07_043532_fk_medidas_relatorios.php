@@ -25,6 +25,6 @@ class FkMedidasRelatorios extends Migration
      */
     public function down()
     {
-        Schema::drop('tb_medidas_relatorios');
+        //
     }
 }

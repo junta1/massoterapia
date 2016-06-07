@@ -3,9 +3,8 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class FkSintomas extends Migration
+class TbMedidasRelatorios extends Migration
 {
-
     /**
      * Run the migrations.
      *
@@ -13,9 +12,9 @@ class FkSintomas extends Migration
      */
     public function up()
     {
-        Schema::table('tb_sintomas', function (Blueprint $table) {
-
-            $table->foreign('fk_categoria_id')->references('id')->on('tb_sintomas_categoria');
+        Schema::create('tb_medidas_relatorios', function(Blueprint $table){
+            $table->increments('id');
+            $table->unsignedInteger('fk_medidas_id');
         });
     }
 
@@ -28,5 +27,4 @@ class FkSintomas extends Migration
     {
         //
     }
-
 }
