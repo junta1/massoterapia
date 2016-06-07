@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TbProfissional extends Migration
+class TbSintomasRelatorios extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,10 @@ class TbProfissional extends Migration
      */
     public function up()
     {
-        Schema::create('tb_profissional', function(Blueprint $table){
+        Schema::create('tb_sintomas_relatorios', function(Blueprint $table){
             $table->increments('id');
-            $table->string('nome_profissional',255);
-            $table->string('sexo',1);
-            $table->string('telefone',45);
-            $table->unsignedInteger('fk_cargo_id');
+            $table->unsignedInteger('fk_sintomas_id');
+            $table->string('sintoma_resposta', 3);
         });
     }
 
@@ -28,6 +26,6 @@ class TbProfissional extends Migration
      */
     public function down()
     {
-        Schema::drop('tb_profissional');
+        Schema::drop('tb_sintomas_relatorios');
     }
 }

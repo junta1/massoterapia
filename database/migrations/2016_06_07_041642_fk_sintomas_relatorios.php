@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class FkRelatorio extends Migration
+class FkSintomasRelatorios extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,9 @@ class FkRelatorio extends Migration
      */
     public function up()
     {
-        Schema::table('tb_relatorio', function (Blueprint $table) {
+        Schema::table('tb_sintomas_relatorios', function (Blueprint $table) {
 
             $table->foreign('fk_sintomas_id')->references('id')->on('tb_sintomas');
-            $table->foreign('fk_medidas_id')->references('id')->on('tb_medidas');
-            $table->foreign('fk_consulta_id')->references('id')->on('tb_consulta');
         });
     }
 
@@ -27,6 +25,6 @@ class FkRelatorio extends Migration
      */
     public function down()
     {
-        Schema::drop('tb_relatorio');
+        Schema::drop('tb_sintomas_relatorios');
     }
 }

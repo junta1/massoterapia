@@ -14,7 +14,6 @@ class TbMedidas extends Migration {
         Schema::create('tb_medidas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nome_area_medida', 80);
-            $table->double('unidade_medida');
         });
     }
 
