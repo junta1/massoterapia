@@ -13,8 +13,8 @@ class FkMedidasRelatorios extends Migration
     public function up()
     {
         Schema::table('tb_medidas_relatorios', function (Blueprint $table) {
-
             $table->foreign('fk_medidas_id')->references('id')->on('tb_medidas');
+            $table->foreign('fk_consulta_id')->references('id')->on('tb_consulta');
         });
     }
 
@@ -25,6 +25,6 @@ class FkMedidasRelatorios extends Migration
      */
     public function down()
     {
-        //
+        
     }
 }

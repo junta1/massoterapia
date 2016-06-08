@@ -14,7 +14,9 @@ class TbMedidasRelatorios extends Migration
     {
         Schema::create('tb_medidas_relatorios', function(Blueprint $table){
             $table->increments('id');
+            $table->string('medida_resposta', 3);
             $table->unsignedInteger('fk_medidas_id');
+            $table->unsignedInteger('fk_consulta_id');
         });
     }
 
@@ -25,6 +27,6 @@ class TbMedidasRelatorios extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('tb_medidas_relatorios');
     }
 }

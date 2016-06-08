@@ -13,8 +13,8 @@ class FkSintomasRelatorios extends Migration
     public function up()
     {
         Schema::table('tb_sintomas_relatorios', function (Blueprint $table) {
-
             $table->foreign('fk_sintomas_id')->references('id')->on('tb_sintomas');
+            $table->foreign('fk_consulta_id')->references('id')->on('tb_consulta');
         });
     }
 
@@ -25,6 +25,6 @@ class FkSintomasRelatorios extends Migration
      */
     public function down()
     {
-        Schema::drop('tb_sintomas_relatorios');
+        
     }
 }

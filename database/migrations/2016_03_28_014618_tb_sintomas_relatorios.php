@@ -14,8 +14,9 @@ class TbSintomasRelatorios extends Migration
     {
         Schema::create('tb_sintomas_relatorios', function(Blueprint $table){
             $table->increments('id');
-            $table->unsignedInteger('fk_sintomas_id');
             $table->string('sintoma_resposta', 3);
+            $table->unsignedInteger('fk_sintomas_id');
+            $table->unsignedInteger('fk_consulta_id');
         });
     }
 
