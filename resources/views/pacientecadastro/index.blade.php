@@ -16,7 +16,7 @@
     
     <div class="row">
         <div class='col-md-6'>
-            {{ Form::open(array('route' => 'paciente-cadastro.index','method' => 'post','class'=>'')) }}
+            {{ Form::open(array('url' => 'paciente-cadastro/search','method' => 'post','class'=>'')) }}
             
             {{Form::text('busca',null, array('class'=>'form-control'))}}
             

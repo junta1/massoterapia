@@ -14,11 +14,14 @@ class PacienteCadastro
         $this->pacienteCadastroRepositorio = $pacienteCadastroRepositorio;
     }
 
-    public function all()
+    public function all($input = null)
     {
+        if (!is_null($input)) {
+            return $this->pacienteCadastroRepositorio->getWhere($input);
+        }
         return $this->pacienteCadastroRepositorio->all();
     }
-        
+
     public function save(array $input)
     {
 

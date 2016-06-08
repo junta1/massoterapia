@@ -18,7 +18,7 @@ class PacienteCadastroController extends Controller
         $this->pacienteCadastroNegocio = $pacienteCadastroNegocio;
     }
 
-    public function index(Request $request)
+    public function index()
     {
         $pacienteCadastro = $this->pacienteCadastroNegocio->all();
         
@@ -57,5 +57,12 @@ class PacienteCadastroController extends Controller
     {
         $this->pacienteCadastroNegocio->delete($id);
         return redirect()->route('paciente-cadastro.index');
+    }
+    
+    public function search(Request $request)
+    {
+        $input = $request->all();
+        $pacienteCadastro = $this->pacienteCadastroNegocio->all($input);
+        return view('pacientecadastro.index', compact('pacienteCadastro'));
     }
 }

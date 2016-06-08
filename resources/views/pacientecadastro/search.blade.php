@@ -17,16 +17,6 @@
     <div class="row">
         <div class='col-md-6'>
             
-            {{ Form::open(['url'=>'paciente-cadastro/search', 'class'=>'navbar-form']) }}
-            <div class="input-group">
-                {{ Form::text('name',null,['class'=>'form-control','placeholder'=>'name']) }}
-                <div class="input-group-btn">
-                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                </div>
-            </div>
-            {{ Form::close() }}
-            
-            
             {{ Form::open(array('route' => 'paciente-cadastro.index','method' => 'post','class'=>'')) }}
             
             {{Form::text('busca',null, array('class'=>'form-control'))}}
