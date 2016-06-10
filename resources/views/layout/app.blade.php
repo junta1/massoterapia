@@ -36,6 +36,13 @@
                         <li><a href="#">Link</a></li>
                         -->
                         <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Consulta <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Nova Consulta</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Paciente <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li>{{ link_to_route('paciente-cadastro.index', 'Novo Paciente')}}</li>
@@ -66,14 +73,7 @@
                                 <li><a href="#">Cargo profissional</a></li>
                             </ul>
                         </li>
-                        
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Consulta <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Nova Consulta</a></li>
-                            </ul>
-                        </li>
-                        
+                                               
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Relatório <span class="caret"></span></a>
                             <ul class="dropdown-menu">

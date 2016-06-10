@@ -1,6 +1,6 @@
 <?php
 
-namespace tests\Massoterapia\PacienteCadastro\Repositorios;
+namespace tests\Massoterapia\PacienteCadastro\Repositorio;
 
 use App\Massoterapia\PacienteCadastro\Repositorio\PacienteCadastroRepositorio;
 use App\Massoterapia\PacienteCadastro\Model\PacienteCadastroModel;
@@ -12,7 +12,7 @@ class PacienteCadastroTest extends \TestCase
     
     public function criarObjeto()
     {
-        $this->pacienteCadastroModel = new PacienteCadastroModel();;
+        $this->pacienteCadastroModel = new PacienteCadastroModel();
         $this->pacienteCadastroRepositorio = new PacienteCadastroRepositorio($this->pacienteCadastroModel);
     }
     

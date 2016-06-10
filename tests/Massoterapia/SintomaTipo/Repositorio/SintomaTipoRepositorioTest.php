@@ -1,5 +1,5 @@
 <?php
-
+//repositorio?
 namespace tests\Massoterapia\SintomaTipo\Repositorios;
 
 use App\Massoterapia\SintomaTipo\Model\SintomaTipoModel;
