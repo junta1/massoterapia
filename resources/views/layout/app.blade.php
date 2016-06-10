@@ -24,13 +24,8 @@
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">Dashboard</a>
+                    
+                    {{link_to('/', $title = 'Dashboard', $attributes = ['class'=>'navbar-brand'])}}
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -41,26 +36,56 @@
                         <li><a href="#">Link</a></li>
                         -->
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cadastro <span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Paciente <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li>{{ link_to_route('usuarios.index', 'Usuarios - Cadastrar')}}</li>
-                                <li role="separator" class="divider"></li>
-                                <li>{{ link_to_route('paciente-cadastro.index', 'Cliente Cadastro')}}</li>
-                                <li role="separator" class="divider"></li>
-                                <li>{{ link_to_route('sintoma-categoria.index', 'Sintomas Categoria')}}</li>
-                                <li>{{ link_to_route('sintoma-tipo.index', 'Sintomas Tipo')}}</li>
+                                <li>{{ link_to_route('paciente-cadastro.index', 'Novo Paciente')}}</li>
                             </ul>
                         </li>
+                        
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sintoma <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>{{ link_to_route('sintoma-tipo.index', 'Sintomas Tipo')}}</li>
+                                <li role="separator" class="divider"></li>
+                                <li>{{ link_to_route('sintoma-categoria.index', 'Sintomas Categoria')}}</li>
+                            </ul>
+                        </li>
+                        
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Medida <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Nova Medida</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profissional <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Novo profissional</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Cargo profissional</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Consulta <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Nova Consulta</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Relatório <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Relatório Sintomas</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Relatório Medidas</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li>{{ link_to_route('usuarios.index', 'Usuário')}}</li>
+                        
                     </ul>
-
-                    <form class="navbar-form navbar-left" role="search">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Buscar">
-                        </div>
-                        <button type="submit" class="btn btn-default">Buscar</button>
-                    </form>
-
-
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
