@@ -18,7 +18,7 @@
     <div class="row">
         <div class='col-md-6'>
             <div class='col-md-10'>
-                <h3>Cadastro de Categoria do Sintoma</h3>
+                <h3>Cadastro do Paciente</h3>
             </div>
             <div class='col-md-2' text-center>
                 <h3>{{ link_to_route('paciente-cadastro.index', 'Voltar', null, array('class' => 'btn btn-info')) }}</h3>

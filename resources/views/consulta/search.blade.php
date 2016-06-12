@@ -11,14 +11,14 @@
         </div>
     
         <div class='col-md-6'>
-            {{ Form::open(array('url' => 'consulta/search','method' => 'post','class'=>'')) }}
+            {{ Form::open(array('route' => 'consulta.index','method' => 'post','class'=>'')) }}
+            
             <div class='col-md-6'>
-                <h3> {{Form::text('busca',null, array('class'=>'form-control','placeholder'=>'Busca o nome, cpf ou data'))}} </h3>
+                <h3> {{Form::text('busca',null, array('class'=>'form-control','placeholder'=>'Data, cpf ou nome'))}} </h3>
             </div>
             
             <div class='col-md-2' text-center>
-                <h3>{{Form::submit('Buscar',array('class' => 'btn btn-info'))}}
-                </h3>
+                <h3>{{Form::submit('Buscar',array('class' => 'btn btn-success'))}}</h3>
             </div>
             
             {{ Form::close() }}
@@ -33,8 +33,6 @@
                     <thead>
                     <th>Nome do Paciente</th>
                     <th>CPF</th>
-                    <th>Profissional Responsável</th>
-                    <th>Cargo</th>
                     <th>Data da consulta</th>
                     </thead>
 
@@ -43,8 +41,6 @@
                         <tr>
                             <td>{{$c->nome_pac}}</td>
                             <td>{{$c->cpf_pac}}</td>
-                            <td>{{$c->nome_profissional}}</td>
-                            <td>{{$c->nome_cargo}}</td>
                             <td>{{$c->data_consulta}}</td>
                         </tr>
                     </tbody>

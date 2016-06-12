@@ -3,7 +3,7 @@
 namespace App\Massoterapia\Consulta\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests;
+//use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Massoterapia\Consulta\Consulta;
 
@@ -43,5 +43,12 @@ class ConsultaController extends Controller
     public function delete($id)
     {
         
+    }
+    
+    public function search(Request $request)
+    {
+        $input = $request->all();
+        $consulta = $this->consultaNegocio->all($input);
+        return view('consulta.index',compact('consulta'));
     }
 }

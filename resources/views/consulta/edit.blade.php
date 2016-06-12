@@ -21,7 +21,7 @@
                 <h3>Marcação de consulta</h3>
             </div>
             <div class='col-md-2' text-center>
-                <h3>{{ link_to_route('consulta.index', 'Cancelar', null, array('class' => 'btn btn-info')) }}</h3>
+                <h3>{{ link_to_route('paciente-cadastro.index', 'Cancelar', null, array('class' => 'btn btn-info')) }}</h3>
             </div>
         </div>
     </div>
@@ -58,11 +58,11 @@
             </div>
             
             <div class="form-group">
-                {{ Form::label('dataConsulta', 'Data de Nascimento') }}
+                {{ Form::label('dataConsulta', 'Data da Consulta') }}
                 {{ Form::text('dataConsulta', null, array('class'=>'form-control')) }}
             </div>
             
-            {{ Form::submit('Cadastrar',array('class' => 'btn btn-success')) }}
+            {{ Form::submit('Marcar',array('class' => 'btn btn-success')) }}
 
             {{ Form::close() }}
             
