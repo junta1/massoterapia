@@ -50,8 +50,11 @@
             </div>
             
             <div class="form-group">
-                {{ Form::label('nomeProfissional', 'Profissional') }}
-                {{ Form::text('nomeProfissional', null, array('class'=>'form-control')) }}
+             {{ Form::Label('nomeProfissional', 'Profissional:') }}
+                <select name="nomeProfissional" class="form-control">
+                    <option value="" selected>Selecione o profissional...</option>
+                    <option value="1">Antonio bicho solto</option>
+                </select>
             </div>
             
             <div class="form-group">

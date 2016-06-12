@@ -30,7 +30,7 @@ class ConsultaRepositorio
                 ->join('tb_profissional','tb_consulta.fk_profissional_id','=','tb_profissional.id')
                 ->join('tb_cargo','tb_profissional.fk_cargo_id','=','tb_cargo.id')
                 ->orderBy('tb_cadastro_paciente.nome_pac', 'asc')
-                ->paginate(2);
+                ->paginate(10);
         
         return $dados;
     }

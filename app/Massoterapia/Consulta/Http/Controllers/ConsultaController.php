@@ -40,7 +40,7 @@ class ConsultaController extends Controller
         return view('consulta.edit', compact('pacienteCadastro'));
     }
     
-    public function update()
+    public function delete($id)
     {
         
     }
