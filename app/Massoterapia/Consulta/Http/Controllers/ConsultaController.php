@@ -35,8 +35,9 @@ class ConsultaController extends Controller
     
     public function edit($id)
     {
-        $consulta = $this->consultaNegocio->find($id);
-        return view('consulta.edit', compact('consulta'));
+        $pacienteCadastro = $this->consultaNegocio->paciente($id);
+        
+        return view('consulta.edit', compact('pacienteCadastro'));
     }
     
     public function update()

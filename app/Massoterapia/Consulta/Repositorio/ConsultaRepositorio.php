@@ -16,6 +16,7 @@ class ConsultaRepositorio
     public function all() 
     {
         $campos = [
+        'tb_consulta.id',
         'tb_cadastro_paciente.nome_pac',
         'tb_cadastro_paciente.cpf_pac',
         'tb_consulta.data_consulta',
@@ -37,6 +38,7 @@ class ConsultaRepositorio
     public function getWhere(array $input)
     {
         $campos = [
+        'tb_consulta.id',
         'tb_cadastro_paciente.nome_pac',
         'tb_cadastro_paciente.cpf_pac',
         'tb_consulta.data_consulta',
@@ -70,6 +72,7 @@ class ConsultaRepositorio
     public function find($id)
     {
         $campos = [
+        'tb_consulta.id',
         'tb_cadastro_paciente.nome_pac',
         'tb_cadastro_paciente.cpf_pac',
         'tb_consulta.data_consulta',

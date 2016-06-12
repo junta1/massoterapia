@@ -16,7 +16,7 @@
     
     <div class="row">
         <div class='col-md-6'>
-            {{ Form::open(array('url' => 'paciente-cadastro/search','method' => 'post','class'=>'')) }}
+            {{ Form::open(array('url' => 'paciente-cadastro/search','method' => 'post')) }}
             
             {{Form::text('busca',null, array('class'=>'form-control'))}}
             
@@ -52,6 +52,7 @@
                             
                             <td>
                                 {{ link_to_route('paciente-cadastro.edit', '', $pc->id, array('class' => 'glyphicon glyphicon-edit', 'aria-hidden'=>'true', 'data-toggle'=>'tooltip', 'title'=>'Editar o Paciente')) }}
+                                {{ link_to_route('consulta.edit', '', $pc->id, array('class' => 'glyphicon glyphicon-calendar', 'aria-hidden'=>'true', 'data-toggle'=>'tooltip', 'title'=>'Nova consulta')) }}
                             </td>
                         </tr>
                     </tbody>

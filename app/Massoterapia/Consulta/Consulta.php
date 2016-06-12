@@ -46,8 +46,17 @@ class Consulta
         return $this->consultaRepositorio->update($id, $input);
     }
     
-    public function delete($i)
+    public function delete($id)
     {
         return $this->consultaRepositorio->delete($id);
+    }
+    
+    public function paciente($id)
+    {
+        $pacienteModel = new \App\Massoterapia\PacienteCadastro\Model\PacienteCadastroModel();
+        $pacienteRepositorio = new \App\Massoterapia\PacienteCadastro\Repositorio\PacienteCadastroRepositorio($pacienteModel);
+        $pacienteNegocio = new \App\Massoterapia\PacienteCadastro\PacienteCadastro($pacienteRepositorio);
+        
+        return $pacienteNegocio->find($id);
     }
 }

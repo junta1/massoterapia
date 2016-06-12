@@ -50,16 +50,21 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Paciente <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li>{{ link_to_route('paciente-cadastro.index', 'Novo Paciente')}}</li>
+                                <li>{{ link_to_route('paciente-cadastro.index', 'Paciente')}}</li>
+                                <li role="separator" class="divider"></li>
+                                <li>{{ link_to_route('paciente-cadastro.create', 'Novo Paciente')}}</li>
+                                
                             </ul>
                         </li>
                         
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sintoma <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li>{{ link_to_route('sintoma-tipo.index', 'Sintomas Tipo')}}</li>
+                                <li>{{ link_to_route('sintoma-tipo.index', 'Sintoma')}}</li>
+                                <li>{{ link_to_route('sintoma-tipo.create', 'Novo Sintoma')}}</li>
                                 <li role="separator" class="divider"></li>
-                                <li>{{ link_to_route('sintoma-categoria.index', 'Sintomas Categoria')}}</li>
+                                <li>{{ link_to_route('sintoma-categoria.index', 'Categoria')}}</li>
+                                <li>{{ link_to_route('sintoma-categoria.create', 'Nova Categoria')}}</li>
                             </ul>
                         </li>
                         
