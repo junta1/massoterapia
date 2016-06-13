@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Massoterapia\MedidaPaciente\MedidaPaciente;
+use App\Massoterapia\MedidaPaciente\Http\Validacao\MedidaPacienteValidacao;
 
 class MedidaPacienteController extends Controller
 {
@@ -20,17 +21,17 @@ class MedidaPacienteController extends Controller
     {
         $medidaNegocio = $this->medidaNegocio->all();
         
-        return view('medidaspaciente.index', compact('medidaNegocio'));
+        return view('medidapaciente.index', compact('medidaNegocio'));
     }
 
     public function create()
     {
-        return view('medidaspaciente.create');
+        return view('medidapaciente.create');
     }
 
-    public function store(Request $request)
+    public function store(MedidaPacienteValidacao $medida)
     {
-        $this->medidaNegocio->save($request->all());
+        $this->medidaNegocio->save($medida->all());
         return redirect()->route('medida-paciente.index');
     }
 
@@ -41,26 +42,26 @@ class MedidaPacienteController extends Controller
 
     public function edit($id)
     {
-        $pacienteCadastro = $this->pacienteCadastroNegocio->find($id);
-        return view('pacientecadastro.edit', compact('pacienteCadastro'));
+        $medidaNegocio = $this->medidaNegocio->find($id);
+        return view('medidapaciente.edit', compact('medidaNegocio'));
     }
-
-    public function update($id, PacienteCadastroValidacao $paciente)
+    
+    public function update($id, MedidaPacienteValidacao $medida)
     {
-        $this->pacienteCadastroNegocio->update($id, $paciente->all());
-        return redirect()->route('paciente-cadastro.index');
+        $this->medidaNegocio->update($id, $medida->all());
+        return redirect()->route('medida-paciente.index');
     }
 
     public function destroy($id)
     {
-        $this->pacienteCadastroNegocio->delete($id);
-        return redirect()->route('paciente-cadastro.index');
+        $this->medidaNegocio->delete($id);
+        return redirect()->route('medida-paciente.index');
     }
-    
+    //Pendente
     public function search(Request $request)
     {
         $input = $request->all();
-        $pacienteCadastro = $this->pacienteCadastroNegocio->all($input);
-        return view('pacientecadastro.index', compact('pacienteCadastro'));
+        $medidaNegocio = $this->medidaNegocio->all($input);
+        return view('medidapaciente.index', compact('medidaNegocio'));
     }
 }

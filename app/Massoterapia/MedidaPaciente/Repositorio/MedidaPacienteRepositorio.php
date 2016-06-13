@@ -20,6 +20,15 @@ class MedidaPacienteRepositorio
                 ->paginate(10);
     }
     
+    public function getWhere(array $input)
+    {
+        return $this->medidaModel
+                ->select('id','nome_area_medida')
+                ->where('nome_area_medida','LIKE','%' . $input['busca'] . '%')
+                ->paginate(10);
+    }
+
+
     public function save(array $input)
     {
         $dados = [
@@ -37,7 +46,7 @@ class MedidaPacienteRepositorio
     public function update($id, array $input)
     {
         $medida = $this->medidaModel->find($id);
-        $medida->nome_area_medida = $input['areaMeida'];
+        $medida->nome_area_medida = $input['areaMedida'];
         
         return $medida->save();
     }

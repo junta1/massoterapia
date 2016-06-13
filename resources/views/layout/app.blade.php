@@ -71,7 +71,8 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Medida <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Nova Medida</a></li>
+                                <li>{{ link_to_route('medida-paciente.index', 'Medida')}}</li>
+                                <li>{{ link_to_route('medida-paciente.create', 'Nova Medida')}}</li>
                             </ul>
                         </li>
                         

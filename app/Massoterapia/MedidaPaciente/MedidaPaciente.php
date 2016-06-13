@@ -2,19 +2,23 @@
 
 namespace App\Massoterapia\MedidaPaciente;
 
-use App\Massoterapia\MedidaPaciente\MedidaPaciente;
+use App\Massoterapia\MedidaPaciente\Repositorio\MedidaPacienteRepositorio;
 
 class MedidaPaciente
 {
     protected $medidaRepositorio;
     
-    public function __construct(MedidaPaciente $medidaRepositorio)
+    public function __construct(MedidaPacienteRepositorio $medidaRepositorio)
     {
         $this->medidaRepositorio = $medidaRepositorio;
     }
     
     public function all($input = null)
     {
+        if(!is_null($input)){
+            return $this->medidaRepositorio->getWhere($input);
+        }
+        
         return $this->medidaRepositorio->all();
     }
     
@@ -27,6 +31,7 @@ class MedidaPaciente
     {
         $input = $this->medidaRepositorio->find($id);
         $medida = new \stdClass();
+        $medida->id = $input['id'];
         $medida->areaMedida = $input['nome_area_medida'];
         
         return $medida;

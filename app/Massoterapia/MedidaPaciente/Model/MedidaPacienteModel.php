@@ -8,5 +8,6 @@ class MedidaPacienteModel extends Model
 {
     protected $table = 'tb_medidas';
     protected $fillable = ['id','nome_area_medida'];
-    protected $timestamp = false;
+    public $timestamps = false;
+    
 }
