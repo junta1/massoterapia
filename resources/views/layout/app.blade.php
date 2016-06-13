@@ -51,7 +51,6 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Paciente <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li>{{ link_to_route('paciente-cadastro.index', 'Paciente')}}</li>
-                                <li role="separator" class="divider"></li>
                                 <li>{{ link_to_route('paciente-cadastro.create', 'Novo Paciente')}}</li>
                                 
                             </ul>
@@ -79,9 +78,11 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profissional <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Novo profissional</a></li>
+                                <li><a href="#">Profissional</a></li>
+                                <li><a href="#">Novo Profissional</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="#">Cargo profissional</a></li>
+                                <li><a href="#">Cargo</a></li>
+                                <li><a href="#">Novo Cargo</a></li>
                             </ul>
                         </li>
                                                

@@ -25,13 +25,26 @@
         </div>
     </div>
     
+    <div class="row">
+        <div class='col-md-6'>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    No sintoma, serão definidos os nomes que representarão os tipos dos sintomas.
+                    <br>Exemplo: 
+                    <br>Existem casos de diabetes na família?
+                    <br>Bebe água com frequência?
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <div class='row'>
         <div class='col-md-6'>
             {{ Form::open(array('route' => 'sintoma-tipo.store','method' => 'post')) }}
 
             <div class="form-group">
                 {{ Form::label('nomeSintomas', 'Tipo de Sintoma') }}
-                {{ Form::text('nomeSintomas',null,array('class'=>'form-control', 'placeholder'=>'Tipo de Sintoma')) }}
+                {{ Form::text('nomeSintomas',null,array('class'=>'form-control', 'placeholder'=>'Ex: Possui acompanhamento médico?')) }}
             </div>
 
             <div class="form-group">

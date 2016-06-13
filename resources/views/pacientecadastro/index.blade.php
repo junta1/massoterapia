@@ -17,7 +17,7 @@
             {{ Form::open(array('url' => 'paciente-cadastro/search','method' => 'post')) }}
 
             <div class='col-md-6'>
-                <h3>{{Form::text('busca',null, array('class'=>'form-control'))}}</h3>
+                <h3>{{Form::text('busca',null, array('class'=>'form-control','placeholder'=>'Busca nome, cpf e e-mail'))}}</h3>
             </div>
 
             <div class='col-md-2' text-center>
