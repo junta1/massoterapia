@@ -81,8 +81,8 @@
                                 <li><a href="#">Profissional</a></li>
                                 <li><a href="#">Novo Profissional</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="#">Cargo</a></li>
-                                <li><a href="#">Novo Cargo</a></li>
+                                <li>{{ link_to_route('profissional-cargo.index', 'Cargo')}}</li>
+                                <li>{{ link_to_route('profissional-cargo.create', 'Novo Cargo')}}</li>
                             </ul>
                         </li>
                                                

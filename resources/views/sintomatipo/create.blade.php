@@ -44,7 +44,7 @@
 
             <div class="form-group">
                 {{ Form::label('nomeSintomas', 'Tipo de Sintoma') }}
-                {{ Form::text('nomeSintomas',null,array('class'=>'form-control', 'placeholder'=>'Ex: Possui acompanhamento médico?')) }}
+                {{ Form::text('nomeSintomas',null,array('class'=>'form-control', 'placeholder'=>'Ex: Possui acompanhamento médico?','autofocus')) }}
             </div>
 
             <div class="form-group">
