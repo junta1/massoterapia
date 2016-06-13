@@ -9,6 +9,7 @@ class SintomaCategoriaModel extends Model {
 
     protected $table = 'tb_sintomas_categoria';
     protected $fillable = ['nome_categoria'];
+    public $timestamps = false;
     
         /**
         * hasone - um para um 
