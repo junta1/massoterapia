@@ -6,7 +6,7 @@
     <div class="row">
         <div class='col-md-6'>
             <div class='col-md-10'>
-                <h3>Cargo do profissional</h3>
+                <h3>Profissional</h3>
             </div>
 
             <div class='col-md-2' text-center>

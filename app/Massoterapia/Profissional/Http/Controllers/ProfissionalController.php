@@ -22,4 +22,16 @@ class ProfissionalController extends Controller
         return view('profissional.index', compact('profissional'));
     }
     
+    public function create()
+    {
+        $cargo = $this->negocio->cargoAll();
+        return view('profissional.create', compact('cargo'));
+    }
+    
+    public function store(ProfissionalValidacao $validacao)
+    {
+        $this->negocio->save($validacao->all());
+        return redirect()->route('profissional.index');
+    }
+    
 }

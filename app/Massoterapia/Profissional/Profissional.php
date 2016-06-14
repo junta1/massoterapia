@@ -22,6 +22,15 @@ class Profissional
         return $this->profissionalRepositorio->all();
     }
     
+    public function cargoAll()
+    {
+        $cargoModel = new \App\Massoterapia\ProfissionalCargo\Model\CargoProfissionalModel();
+        $cargoRepositorio = new \App\Massoterapia\ProfissionalCargo\Repositorio\CargoProfissionalRepositorio($cargoModel);
+        $cargoNegocio = new \App\Massoterapia\ProfissionalCargo\CargoProfissional($cargoRepositorio);
+        
+        return $cargoNegocio->all();
+    }
+    
     public function save(array $input)
     {
         return $this->profissionalRepositorio->save($input);
