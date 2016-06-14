@@ -38,14 +38,14 @@ class SintomaCategoriaValidacao extends Request{
         $id = $this->getByid();
 
         return [
-            'nomeCategoria' => "required|min:2|unique:nomeCategoria,{$id}|max:50"
+            'nomeCategoria' => "required|min:2|max:50"
         ];
     }
 
     protected function validacaoModoCriacao() {
 
         return [
-            'nomeCategoria' => 'required|unique:nomeCategoria|min:2|max:50'
+            'nomeCategoria' => 'required|min:2|max:50'
         ];
     }
 
