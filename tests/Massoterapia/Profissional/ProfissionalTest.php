@@ -1,113 +1,117 @@
 <?php
 
-namespace tests\App\Massoterapia\Profissional\Repositorio;
+namespace tests\Massoterapia\Profissional;
 
 use App\Massoterapia\Profissional\Model\ProfissionalModel;
 use App\Massoterapia\Profissional\Repositorio\ProfissionalRepositorio;
+use App\Massoterapia\Profissional\Profissional;
 
-class ProfissionalRepositorioTest extends \TestCase
+class ProfissionalTest extends \TestCase
 {
     protected $model;
     protected $repositorio;
+    protected $negocio;
     
     public function criarObjeto()
     {
         $this->model = new ProfissionalModel();
         $this->repositorio = new ProfissionalRepositorio($this->model);
+        $this->negocio = new Profissional($this->repositorio);
     }
     
     /**
-     * @group busca profissional rep
+     * @group busca profissional
      */
     public function testBuscaTodos()
     {
         $this->criarObjeto();
         
-        $busca = $this->repositorio->all();
+        $busca = $this->negocio->all();
+        
         dd($busca);
     }
     
     /**
-     * @group salva profissional rep
+     * @group salva profissional
      */
     public function testSalva()
     {
         $this->criarObjeto();
-        $input= [
-            'nomeProfissional' => 'Louco',
+        
+        $input = [
+            'nomeProfissional' => 'Zoera',
             'sexoProfissional' => 'm',
-            'telefoneProfissional' =>1234657,
+            'telefoneProfissional' => '56894',
             'idCargo' => 7
         ];
         
-        $dados = $this->repositorio->save($input);
+        $salva = $this->negocio->save($input);
         
-        dd($dados);
+        dd($salva);
     }
     
     /**
-     * @group especifico profissional rep
+     * @group especifico profissional
      */
     public function testEspecifico()
     {
         $this->criarObjeto();
-        $id = 2;
         
-        $especifico = $this->repositorio->find($id);
+        $id = 3;
+        
+        $especifico = $this->negocio->find($id);
         
         dd($especifico);
-        
     }
-   
+    
     /**
-     * @group filtro profissional rep
+     * @group filtro profissional
      */
     public function testFiltro()
     {
         $this->criarObjeto();
         
         $input = [
-            'busca' => 'Ant'
+            'busca' => 'bo'
         ];
         
-        $busca = $this->repositorio->getWhere($input);
+        $busca = $this->negocio->all($input);
         
         dd($busca);
-        
     }
     
     /**
-     * @group edita profissional rep
+     * @group edita profissional
      */
     public function testEdita()
     {
         $this->criarObjeto();
-        $id = 2;
         
-        $input= [
-            'nomeProfissional' => 'Doido',
+        $id = 3;
+        
+        $input = [
+            'nomeProfissional' => 'Boneco Doido',
             'sexoProfissional' => 'f',
-            'telefoneProfissional' =>23423,
+            'telefoneProfissional' => '54694',
             'idCargo' => 7
         ];
         
-        $dados = $this->repositorio->update($id, $input);
+        $edita = $this->negocio->update($id, $input);
         
-        dd($dados);
+        dd($edita);
     }
     
     /**
-     * @group apaga profissional rep
+     * @group apaga profissional
      */
     public function testApaga()
     {
         $this->criarObjeto();
         
-        $id = 2;
+        $id = 3;
         
-        $apagar = $this->repositorio->delete($id);
+        $apaga = $this->negocio->delete($id);
         
-        dd($apagar);
-        
+        dd($apaga);
     }
 }

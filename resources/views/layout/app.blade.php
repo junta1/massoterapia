@@ -78,8 +78,8 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profissional <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Profissional</a></li>
-                                <li><a href="#">Novo Profissional</a></li>
+                                <li>{{ link_to_route('profissional.index', 'Profissional')}}</li>
+                                <li>{{ link_to_route('profissional.create', 'Novo Profissional')}}</li>
                                 <li role="separator" class="divider"></li>
                                 <li>{{ link_to_route('profissional-cargo.index', 'Cargo')}}</li>
                                 <li>{{ link_to_route('profissional-cargo.create', 'Novo Cargo')}}</li>

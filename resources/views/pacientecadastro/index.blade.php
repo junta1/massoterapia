@@ -49,7 +49,13 @@
                         <td>{{$pc->cpf_pac}}</td>
                         <td>{{$pc->email_pac}}</td>
                         <td>{{$pc->nascimento_pac}}</td>
-                        <td>{{$pc->sexo_pac}}</td>
+                        <td>
+                            @if( ($pc->sexo_pac === 'm') || ($pc->sexo_pac === 'M') )
+                                Masculino
+                            @elseif ( ($pc->sexo_pac === 'f') || ($pc->sexo_pac === 'F') )
+                                Feminino
+                            @endif
+                        </td>
 
                         <td>
                             {{ link_to_route('paciente-cadastro.edit', '', $pc->id, array('class' => 'glyphicon glyphicon-edit', 'aria-hidden'=>'true', 'data-toggle'=>'tooltip', 'title'=>'Editar o Paciente')) }}
