@@ -21,9 +21,17 @@ class Consulta
         }
         
         return $this->consultaRepositorio->all();
-        
     }
 
+    public function profissionalAll()
+    {
+        $model = new \App\Massoterapia\Profissional\Model\ProfissionalModel();
+        $repositorio = new \App\Massoterapia\Profissional\Repositorio\ProfissionalRepositorio($model);
+        $negocio = new \App\Massoterapia\Profissional\Profissional($repositorio);
+        
+        return $negocio->all();
+    }
+    
     protected function tratarOutput($d)
     {
         return [
@@ -46,6 +54,7 @@ class Consulta
         $dados->dataConsulta = date('D m Y H:i', strtotime($consulta->data_consulta));
         $dados->nomePaciente = $consulta->nome_pac;
         $dados->nomeProfissional = $consulta->nome_profissional;
+        $dados->idProfissional = $consulta->fk_profissional_id;
 
         return $dados;
 

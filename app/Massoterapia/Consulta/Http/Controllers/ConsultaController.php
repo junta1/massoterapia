@@ -35,9 +35,10 @@ class ConsultaController extends Controller
     
     public function edit($id)
     {
+        $profissional = $this->consultaNegocio->profissionalAll();
+                
         $pacienteCadastro = $this->consultaNegocio->paciente($id);
-        
-        return view('consulta.edit', compact('pacienteCadastro'));
+        return view('consulta.edit', compact('pacienteCadastro','profissional'));
     }
     
     public function delete($id)

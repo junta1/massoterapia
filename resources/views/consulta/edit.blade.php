@@ -53,9 +53,25 @@
              {{ Form::Label('nomeProfissional', 'Profissional:') }}
                 <select name="nomeProfissional" class="form-control">
                     <option value="" selected>Selecione o profissional...</option>
-                    <option value="1">Antonio bicho solto</option>
+                    @foreach ($profissional as $p)
+                    <option value="{{$p->id}}">{{$p->nome_profissional}}</option>
+                    @endforeach
                 </select>
             </div>
+            
+            
+            <!-- Criar uma variavel que receba os dados da tabela consulta e substitua a variavel $pacienteCadastro-> -->
+            <div class="form-group">
+                {{ Form::Label('nomeProfissional', 'Profissional 2:') }}
+                <select name="nomeProfissional" class="form-control">
+                    <option value="" selected>Selecione a categoria...</option>
+                    @foreach($profissional as $p)
+                    <option value="{{$p->id}}" @if($p->id == $pacienteCadastro->fk_profissional_id) selected='selected' @endif >{{$p->nome_profissional}}</option>
+                    @endforeach
+                </select>
+            </div>
+            
+            
             
             <div class="form-group">
                 {{ Form::label('dataConsulta', 'Data da Consulta') }}
