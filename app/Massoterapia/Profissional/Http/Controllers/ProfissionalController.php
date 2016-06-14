@@ -58,4 +58,11 @@ class ProfissionalController extends Controller
         $this->negocio->delete($id);
         return redirect()->route('profissional.index');
     }
+    
+    public function search(Request $request)
+    {
+        $input = $request->all();
+        $profissional = $this->negocio->all($input);
+        return view('profissional.index', compact('profissional'));
+    }
 }
