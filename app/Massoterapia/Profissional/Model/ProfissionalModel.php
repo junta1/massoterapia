@@ -8,7 +8,7 @@ use App\Massoterapia\ProfissionalCargo\Model\CargoProfissionalModel;
 class ProfissionalModel extends Model
 {
     protected $table = 'tb_profissional';
-    protected $fillable = ['id','nome_profissional','sexo','telefone','fk_Cargo_id'];
+    protected $fillable = ['id','nome_profissional','sexo','telefone','fk_cargo_id'];
     public $timestamps = false;
     
     

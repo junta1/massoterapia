@@ -34,4 +34,28 @@ class ProfissionalController extends Controller
         return redirect()->route('profissional.index');
     }
     
+    public function show($id)
+    {
+        
+    }
+
+    public function edit($id)
+    {
+        $cargo = $this->negocio->cargoAll();
+        $profissional = $this->negocio->find($id);
+        
+        return view('profissional.edit', compact('profissional','cargo'));
+    }
+    
+    public function update(ProfissionalValidacao $validacao)
+    {
+        $this->negocio->update($id, $validacao->all());
+        return redirect()->route('profissional.index');
+    }
+    
+    public function destroy($id)
+    {
+        $this->negocio->delete($id);
+        return redirect()->route('profissional.index');
+    }
 }

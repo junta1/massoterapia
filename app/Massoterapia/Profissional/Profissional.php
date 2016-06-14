@@ -38,7 +38,16 @@ class Profissional
     
     public function find($id)
     {
-        return $this->profissionalRepositorio->find($id);
+        $dados = $this->profissionalRepositorio->find($id);
+        
+        $profissional = new \stdClass();
+        $profissional->id = $dados->id;
+        $profissional->nomeProfissional = $dados->nome_profissional;
+        $profissional->sexoProfissional = $dados->sexo;
+        $profissional->telefoneProfissional = $dados->telefone;
+        $profissional->idCargo = $dados->fk_cargo_id;
+        
+        return $profissional;
     }
     
     public function update($id, array $input)

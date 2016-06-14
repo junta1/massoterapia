@@ -20,12 +20,13 @@ class ProfissionalRepositorio
             'tb_profissional.nome_profissional',
             'tb_profissional.sexo',
             'tb_profissional.telefone',
+            'tb_profissional.fk_cargo_id',
             'tb_cargo.nome_cargo'
         ];
         
         $busca = $this->profissionalModel
                         ->select($campos)
-                        ->join('tb_cargo','tb_cargo.id','=','tb_profissional.fk_cargo_id')
+                        ->join('tb_cargo','tb_profissional.fk_cargo_id','=','tb_cargo.id')
                         ->orderBy('tb_profissional.nome_profissional','ASC')
                         ->paginate(10);
         return $busca;
@@ -38,12 +39,13 @@ class ProfissionalRepositorio
             'tb_profissional.nome_profissional',
             'tb_profissional.sexo',
             'tb_profissional.telefone',
+            'tb_profissional.fk_cargo_id',
             'tb_cargo.nome_cargo'
         ];
         
         $busca = $this->profissionalModel
                         ->select($campos)
-                        ->join('tb_cargo','tb_cargo.id','=','tb_profissional.fk_cargo_id')
+                        ->join('tb_cargo','tb_profissional.fk_cargo_id','=','tb_cargo.id')
                         ->orderBy('tb_profissional.nome_profissional','ASC')
                         ->where('tb_profissional.nome_profissional', 'LIKE', '%' . $input['busca'] . '%')
                         ->paginate(10);
@@ -69,12 +71,13 @@ class ProfissionalRepositorio
             'tb_profissional.nome_profissional',
             'tb_profissional.sexo',
             'tb_profissional.telefone',
+            'tb_profissional.fk_cargo_id',
             'tb_cargo.nome_cargo'
         ];
         
         $busca = $this->profissionalModel
                         ->select($campos)
-                        ->join('tb_cargo','tb_cargo.id','=','tb_profissional.fk_cargo_id')
+                        ->join('tb_cargo','tb_profissional.fk_cargo_id','=','tb_cargo.id')
                         ->orderBy('tb_profissional.nome_profissional','ASC')
                         ->where('tb_profissional.id','=',$id)
                         ->first();

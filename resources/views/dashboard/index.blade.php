@@ -2,8 +2,6 @@
 
 @section('content')
 
-Criar cadastro Profissional <br>
-
 Resolver gambiarra de nova consulta<br>
 
 Criar tela login com scaffold <br>
