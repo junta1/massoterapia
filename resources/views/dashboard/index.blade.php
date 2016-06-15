@@ -2,8 +2,6 @@
 
 @section('content')
 
-Resolver gambiarra de nova consulta<br>
-
 Criar tela login com scaffold <br>
 
 Criar paineis agrupados ensinando a utilizar o sistema.<br>

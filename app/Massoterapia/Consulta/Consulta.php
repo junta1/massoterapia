@@ -51,7 +51,7 @@ class Consulta
         $consulta = $this->consultaRepositorio->find($id);
         $dados = new \stdClass();
         $dados->id = $consulta->id;
-        $dados->dataConsulta = date('D m Y H:i', strtotime($consulta->data_consulta));
+        $dados->dataConsulta = $consulta->data_consulta;
         $dados->nomePaciente = $consulta->nome_pac;
         $dados->nomeProfissional = $consulta->nome_profissional;
         $dados->idProfissional = $consulta->fk_profissional_id;
