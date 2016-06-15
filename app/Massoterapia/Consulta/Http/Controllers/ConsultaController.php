@@ -13,6 +13,7 @@ class ConsultaController extends Controller
     
     public function __construct(Consulta $consultaNegocio)
     {
+        $this->middleware('auth');
         $this->consultaNegocio = $consultaNegocio;
     }
     

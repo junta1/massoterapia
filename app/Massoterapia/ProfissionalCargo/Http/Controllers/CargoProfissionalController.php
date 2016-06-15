@@ -13,6 +13,7 @@ class CargoProfissionalController extends Controller
     
     public function __construct(CargoProfissional $cargoNegocio)
     {
+        $this->middleware('auth');
         $this->cargoNegocio = $cargoNegocio;
     }
     

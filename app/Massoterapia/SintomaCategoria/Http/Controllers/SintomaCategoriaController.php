@@ -14,6 +14,7 @@ class SintomaCategoriaController extends Controller
 
     public function __construct(SintomaCategoria $sintomaCategoria)
     {
+        $this->middleware('auth');
         $this->sintomaCategoria = $sintomaCategoria;
     }
 

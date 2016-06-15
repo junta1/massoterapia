@@ -12,7 +12,8 @@ class ProfissionalController extends Controller
     protected $negocio;
     
     public function __construct(Profissional $negocio)
-    {
+    {   
+        $this->middleware('auth');
         $this->negocio = $negocio;
     }
     

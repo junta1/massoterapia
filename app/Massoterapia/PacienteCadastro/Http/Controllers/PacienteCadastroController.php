@@ -15,6 +15,7 @@ class PacienteCadastroController extends Controller
 
     public function __construct(PacienteCadastro $pacienteCadastroNegocio)
     {
+        $this->middleware('auth');
         $this->pacienteCadastroNegocio = $pacienteCadastroNegocio;
     }
 

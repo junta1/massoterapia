@@ -11,12 +11,14 @@
   |
  */
 
-Route::get('/', function () {
-    return view('dashboard.index');
-});
+
 
 //Grupo de Rota criada para utilização do validation display
-Route::group(['middleware' => ['web']], function () {
+Route::group(['middleware' => ['auth']], function () {
+    
+    Route::get('/', function () {
+    return view('dashboard.index');
+});
     
 });
 /*
@@ -34,3 +36,6 @@ Route::group(['middleware' => ['web']], function () {
     //
 });
 */
+Route::auth();
+
+Route::get('/home', 'HomeController@index');

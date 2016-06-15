@@ -2,8 +2,6 @@
 
 @section('content')
 
-Criar tela login com scaffold <br>
-
 Criar paineis agrupados ensinando a utilizar o sistema.<br>
 
 Criar tela de relatório sintoma e medida <br>

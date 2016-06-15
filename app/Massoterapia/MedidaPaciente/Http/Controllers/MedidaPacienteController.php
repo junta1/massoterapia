@@ -14,6 +14,7 @@ class MedidaPacienteController extends Controller
 
     public function __construct(MedidaPaciente $medidaNegocio)
     {
+        $this->middleware('auth');
         $this->medidaNegocio = $medidaNegocio;
     }
 
