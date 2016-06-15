@@ -77,7 +77,7 @@ class ProfissionalRepositorio
         
         $busca = $this->profissionalModel
                         ->select($campos)
-                        ->join('tb_cargo','tb_profissional.fk_cargo_id','=','tb_cargo.id')
+                        ->join('tb_cargo','tb_profissional.fk_cargo_id','=','tb_cargo.id', 'left')
                         ->orderBy('tb_profissional.nome_profissional','ASC')
                         ->where('tb_profissional.id','=',$id)
                         ->first();

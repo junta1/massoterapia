@@ -17,6 +17,7 @@ class SintomasRelatoriosRepositorio
     public function all($input = null)
     {
         $campos = [
+            'tb_sintomas_relatorios.id',
             'tb_sintomas.nome_sintomas',
             'tb_sintomas_relatorios.sintoma_resposta',
             'tb_cadastro_paciente.nome_pac',
@@ -54,6 +55,7 @@ class SintomasRelatoriosRepositorio
     public function getWhere(array $input)
     {
         $campos = [
+            'tb_sintomas_relatorios.id',
             'tb_sintomas.nome_sintomas',
             'tb_sintomas_relatorios.sintoma_resposta',
             'tb_cadastro_paciente.nome_pac',
@@ -71,16 +73,23 @@ class SintomasRelatoriosRepositorio
                 ->join('tb_cadastro_paciente', 'tb_cadastro_paciente.id', '=', 'tb_consulta.fk_cadastro_paciente_id')
                 ->join('tb_profissional', 'tb_profissional.id', '=', 'tb_consulta.fk_profissional_id')
                 ->join('tb_cargo', 'tb_cargo.id', '=', 'tb_profissional.fk_cargo_id')
-                ->where('tb_cadastro_paciente.nome_pac', 'LIKE','%'. $input['busca']. '%')
-                ->orderBy('tb_sintomas.nome_sintomas', 'asc')
-                ->paginate(10);
+                ->orderBy('tb_sintomas.nome_sintomas', 'asc');
+        
+        if (isset($input['idConsulta'])) {
+            $busca = $busca->where('fk_consulta_id', '=', $input['idConsulta']);
+        }
+        
+        if (isset($input['busca'])) {
+            $busca = $busca->where('tb_cadastro_paciente.nome_pac', 'LIKE','%'. $input['busca']. '%');
+        }
 
-        return $busca;
+        return $busca->get();
     }
 
     public function find($id)
     {
         $campos = [
+            'tb_sintomas_relatorios.id',
             'tb_sintomas.nome_sintomas',
             'tb_sintomas_relatorios.sintoma_resposta',
             'tb_cadastro_paciente.nome_pac',

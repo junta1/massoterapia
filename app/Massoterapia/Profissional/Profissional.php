@@ -3,14 +3,15 @@
 namespace App\Massoterapia\Profissional;
 
 use App\Massoterapia\Profissional\Repositorio\ProfissionalRepositorio;
+use App\Massoterapia\Profissional\Model\ProfissionalModel;
 
 class Profissional
 {
     protected $profissionalRepositorio;
     
-    public function __construct(ProfissionalRepositorio $profissionalRepositorio)
+    public function __construct()
     {
-        $this->profissionalRepositorio = $profissionalRepositorio;
+        $this->profissionalRepositorio = new ProfissionalRepositorio(new ProfissionalModel());
     }
     
     public function all($input = null)
@@ -40,12 +41,17 @@ class Profissional
     {
         $dados = $this->profissionalRepositorio->find($id);
         
+        if (!$dados) {
+            return new \stdClass();
+        }
+        
         $profissional = new \stdClass();
         $profissional->id = $dados->id;
         $profissional->nomeProfissional = $dados->nome_profissional;
         $profissional->sexoProfissional = $dados->sexo;
         $profissional->telefoneProfissional = $dados->telefone;
         $profissional->idCargo = $dados->fk_cargo_id;
+        $profissional->nomeCargo = $dados->nome_cargo;
         
         return $profissional;
     }

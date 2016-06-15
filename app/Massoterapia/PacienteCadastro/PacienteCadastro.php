@@ -3,15 +3,16 @@
 namespace App\Massoterapia\PacienteCadastro;
 
 use App\Massoterapia\PacienteCadastro\Repositorio\PacienteCadastroRepositorio;
+use App\Massoterapia\PacienteCadastro\Model\PacienteCadastroModel;
 
 class PacienteCadastro
 {
 
     protected $pacienteCadastroRepositorio;
 
-    public function __construct(PacienteCadastroRepositorio $pacienteCadastroRepositorio)
+    public function __construct()
     {
-        $this->pacienteCadastroRepositorio = $pacienteCadastroRepositorio;
+        $this->pacienteCadastroRepositorio = new PacienteCadastroRepositorio(new PacienteCadastroModel());
     }
 
     public function all($input = null)
@@ -36,7 +37,7 @@ class PacienteCadastro
         $dados->nomePaciente = $paciente->nome_pac;
         $dados->cpfPaciente = $paciente->cpf_pac;
         $dados->emailPaciente = $paciente->email_pac;
-        $dados->dataNascimentoPaciente = $paciente->nascimento_pac;
+        $dados->dataNascimentoPaciente = (!is_null($paciente->nascimento_pac) ? date('d/m/Y', strtotime($paciente->nascimento_pac)) : null);
         $dados->sexoPaciente = $paciente->sexo_pac;
 
         return $dados;

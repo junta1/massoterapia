@@ -3,15 +3,16 @@
 namespace App\Massoterapia\Consulta;
 
 use App\Massoterapia\Consulta\Repositorio\ConsultaRepositorio;
+use App\Massoterapia\Consulta\Model\ConsultaModel;
 
 class Consulta
 {
 
     protected $consultaRepositorio;
 
-    public function __construct(ConsultaRepositorio $consultaRepositorio)
+    public function __construct()
     {
-        $this->consultaRepositorio = $consultaRepositorio;
+        $this->consultaRepositorio = new ConsultaRepositorio(new ConsultaModel());
     }
 
     public function all($input = null)
@@ -51,14 +52,13 @@ class Consulta
         $consulta = $this->consultaRepositorio->find($id);
         $dados = new \stdClass();
         $dados->id = $consulta->id;
-        $dados->dataConsulta = $consulta->data_consulta;
+        $dados->dataConsulta = (!is_null($consulta->data_consulta) ? date('d/m/Y', strtotime($consulta->data_consulta)) : null);
         $dados->nomePaciente = $consulta->nome_pac;
         $dados->nomeProfissional = $consulta->nome_profissional;
         $dados->idProfissional = $consulta->fk_profissional_id;
+        $dados->idPaciente = $consulta->id_paciente;
 
         return $dados;
-
-//        return $this->consultaRepositorio->find($id);
     }
 
     public function update($id, $input)
