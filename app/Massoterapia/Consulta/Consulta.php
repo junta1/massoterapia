@@ -22,7 +22,7 @@ class Consulta
         }
         
         return $this->consultaRepositorio->all();
-    }
+        }
 
     public function profissionalAll()
     {
@@ -33,13 +33,19 @@ class Consulta
         return $negocio->all();
     }
     
-    protected function tratarOutput($d)
+    protected function tratarOutput($consulta)
     {
-        return [
-            'dataConsulta' => $d->data_consulta,
-            'nomePaciente' => $d->fk_cadastro_paciente_id,
-            'nomeProfissional' => $d->fk_profissional_id
-        ];
+        $dados = new \stdClass();
+        $dados->id = $consulta->id;
+        $dados->dataConsulta = (!is_null($consulta->data_consulta) ? date('d/m/Y', strtotime($consulta->data_consulta)) : null);
+        $dados->nomePaciente = $consulta->nome_pac;
+        $dados->cpfPaciente = $consulta->cpf_pac;
+        $dados->nomeProfissional = $consulta->nome_profissional;
+        $dados->nomeCargo = $consulta->nome_cargo;
+        $dados->idProfissional = $consulta->fk_profissional_id;
+        $dados->idPaciente = $consulta->id_paciente;
+
+        return $dados;
     }
 
     public function save($input)

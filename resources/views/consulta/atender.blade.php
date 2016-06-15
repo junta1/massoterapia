@@ -3,7 +3,7 @@
 
 <div class="container">
     
-    <h1>Resultado</h1>
+    <h1>Atendimento</h1>
     <hr>
     <table class="table table-striped">
         <tbody>
@@ -38,24 +38,6 @@
         <tbody>
             <tr>
                 <td colspan="2">
-                    <span style='font-weight: bold;'>Dados do Profissional</span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <strong>Nome: </strong>{{$consulta['profissional']->nomeProfissional}}
-                </td>
-                <td>
-                    <strong>Cargo: </strong>{{$consulta['profissional']->nomeCargo}}
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <hr>
-    <table class="table table-striped">
-        <tbody>
-            <tr>
-                <td colspan="2">
                     <span style='font-weight: bold;'>Dados da Consulta</span>
                 </td>
             </tr>
@@ -68,24 +50,20 @@
         </tbody>
     </table>
     <hr>
-    <table class="table table-striped">
-        <tbody>
-            <tr>
-                <td colspan="2">
-                    <span style='font-weight: bold;'>Questionário</span>
-                </td>
-            </tr>
-            @foreach ($consulta['respostas'] as $r)
-                <tr>
-                    <td>
-                        <strong>{{$r->nome_sintomas}}</strong>
-                    </td>
-                    <td>
-                        {{$r->sintoma_resposta}}
-                    </td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
+    <h3>Questionário</h3>
+    {{ Form::open(array('url' => 'atendimento-consulta','method' => 'post')) }}
+            
+    @foreach ($consulta['sintomas'] as $s)
+        <div class="form-group">
+            {{ Form::label('nomeSintoma' . $s->id, $s->nome_sintomas) }}
+            {{ Form::text("resposta[{$s->id}]", null, array('class'=>'form-control'))  }}
+        </div>
+    @endforeach
+    
+    {{Form::hidden('idConsulta', $consulta['consulta']->id)}}
+
+    {{ Form::submit('Cadastrar', array('class' => 'btn btn-success')) }}
+
+    {{ Form::close() }}
 </div>
 @endsection

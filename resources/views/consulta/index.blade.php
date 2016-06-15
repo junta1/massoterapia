@@ -31,21 +31,32 @@
             <div class="table-responsive"/>
                 <table class="table">
                     <thead>
+                    <th>#</th>
                     <th>Nome do Paciente</th>
                     <th>CPF</th>
                     <th>Profissional Responsável</th>
                     <th>Cargo</th>
                     <th>Data da consulta</th>
+                    <th>Ações</th>
                     </thead>
 
-                    @foreach ($consulta as $c)
+                    @foreach ($consulta as $key => $c)
                     <tbody>
                         <tr>
+                            <td>{{($key + 1)}}</td>
                             <td>{{$c->nome_pac}}</td>
                             <td>{{$c->cpf_pac}}</td>
                             <td>{{$c->nome_profissional}}</td>
                             <td>{{$c->nome_cargo}}</td>
-                            <td>{{$c->data_consulta}}</td>
+                            <td>{{date('d/m/Y', strtotime($c->data_consulta))}}</td>
+                            <td>
+                                <a class="btn btn-primary btn-sm" href="{{'atendimento-consulta/index/' . $c->id}}" role="button">
+                                    <span class='glyphicon glyphicon-th-list'></span>
+                                </a>
+                                <a class="btn btn-success btn-sm" href="{{'resultado-consulta/index/' . $c->id}}" role="button">
+                                    <span class='glyphicon glyphicon-eye-open'></span>
+                                </a>
+                            </td>
                         </tr>
                     </tbody>
                     @endforeach

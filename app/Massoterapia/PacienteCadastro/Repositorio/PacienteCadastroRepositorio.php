@@ -60,7 +60,7 @@ class PacienteCadastroRepositorio
         $paciente->nome_pac = $input['nomePaciente'];
         $paciente->cpf_pac = $input['cpfPaciente'];
         $paciente->email_pac = $input['emailPaciente'];
-        $paciente->nascimento_pac = $input['dataNascimentoPaciente'];
+        $paciente->nascimento_pac = $this->tratarData($input['dataNascimentoPaciente']);
         $paciente->sexo_pac = $input['sexoPaciente'];
 
         return $paciente->save();
@@ -69,6 +69,11 @@ class PacienteCadastroRepositorio
     public function delete($id)
     {
         return $this->pacienteCadastroModel->destroy($id);
+    }
+    
+    protected function tratarData($data)
+    {
+        return implode('-', array_reverse(explode('/', $data)));
     }
 
 }

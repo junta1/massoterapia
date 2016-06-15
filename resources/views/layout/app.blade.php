@@ -87,15 +87,15 @@
                             </ul>
                         </li>
                                                
-                        <li class="dropdown">
+<!--                        <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Relatório <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">Relatório Sintomas</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="#">Relatório Medidas</a></li>
                             </ul>
-                        </li>
-                        
+                        </li>-->
+
                         <li>
                             <!-- Authentication Links -->
                             @if (Auth::guest())

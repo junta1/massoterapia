@@ -48,7 +48,7 @@
                         <td>{{$pc->nome_pac}}</td>
                         <td>{{$pc->cpf_pac}}</td>
                         <td>{{$pc->email_pac}}</td>
-                        <td>{{$pc->nascimento_pac}}</td>
+                        <td>{{date('d/m/Y', strtotime($pc->nascimento_pac))}}</td>
                         <td>
                             @if( ($pc->sexo_pac === 'm') || ($pc->sexo_pac === 'M') )
                                 Masculino

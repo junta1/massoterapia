@@ -8,5 +8,5 @@ use App\Massoterapia\SintomasRelatorios\SintomasRelatorios;
 
 class SintomasRelatoriosController extends Controller
 {
-    
+        
 }

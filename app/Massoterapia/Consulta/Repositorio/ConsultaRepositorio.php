@@ -80,7 +80,8 @@ class ConsultaRepositorio
         'tb_consulta.data_consulta',
         'tb_profissional.nome_profissional',
         'tb_cargo.nome_cargo',
-        'tb_cadastro_paciente.id as id_paciente'
+        'tb_cadastro_paciente.id as id_paciente',
+        'tb_consulta.fk_profissional_id'
         ];
         
         $dados = $this->consultaModel

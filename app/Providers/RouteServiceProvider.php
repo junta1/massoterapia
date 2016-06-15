@@ -62,6 +62,7 @@ class RouteServiceProvider extends ServiceProvider
             require app_path('/Massoterapia/Profissional/Http/routes.php');
             require app_path('/Massoterapia/SintomasRelatorios/Http/routes.php');
             require app_path('/Massoterapia/ResultadoConsulta/Http/routes.php');
+            require app_path('/Massoterapia/AtendimentoConsulta/Http/routes.php');
         });
     }
 }
